@@ -1,0 +1,274 @@
+/* Importación de fuentes de Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+/* Reset de estilos y configuración global */
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: "Roboto Condensed", serif;
+}
+
+body{
+    background:#f6f6f6 ;
+}
+
+/* Estilos para la barra de navegación (header) */
+header{
+    position: fixed; /* Mantiene el header fijo en la parte superior */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: #fff;
+    box-shadow: 0 4px 25px -22px black;
+    z-index: 2;
+}
+
+/* Contenedor del header para organizar elementos */
+.header-content{
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Logo del header */
+.logo{
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo h1 b{
+    color: orangered;
+}
+
+/* Menú de navegación */
+.menu{
+    height: 80px;
+}
+
+.menu nav{
+    height: 100%;
+}
+
+.menu nav ul{
+    height: 100%;
+    display: flex;
+    list-style: none;
+}
+
+.menu nav ul li{
+    height: 100%;
+    margin: 0px 20px ;
+    display: flex;  
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Indicador visual del menú seleccionado */
+.menu-select:before{
+    content: '';
+    width: 100%;
+    height: 4px;
+    background: orangered;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Estilos de los enlaces del menú */
+.menu nav ul li a{
+    color: #777777;
+    font-size: 18px;
+    transition: color 300ms ;
+}
+
+.menu nav ul li a:hover{  /*Cada que pase el raton en la seccion de menu*/
+    color: orangered;
+}
+
+.menu .text-menu-select{
+    color: orangered;
+}
+
+.menu nav ul li a i{
+    display: none;
+}
+
+/* Ícono del menú para dispositivos móviles */
+#icon-menu{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    right: 20px;
+    top: 16px;
+    padding: 10px;
+    font-size: 20px;
+    background: #eeeeeefa;
+    border-radius: 100%;
+    color: #787878;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+#icon-menu:hover{
+    opacity: 0.8;
+}
+
+/*footer - pie de pagina*/
+
+.container-footer{
+    width: 100%;
+    padding: 40px 0;
+    background: #fff;
+    margin-top: 40px;
+}
+
+.container-footer footer{
+    max-width: 1200px;
+    margin: auto;
+}
+
+.container-footer footer .logo-footer{
+    text-align: center;
+}
+
+.container-footer footer .logo-footer img{
+    width: 100px;
+}
+
+/* Redes sociales en el footer */
+.container-footer footer .redes-footer{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.container-footer footer .redes-footer .icon-redes-footer{
+    font-size: 20px;
+    margin: 20px;
+    background: #efefef;
+    width: 50px;
+    height: 50px;
+    display: flex;            /*Estas 3 lineas sirven para centrar los iconos*/
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    color: #a2a2a2;
+}
+
+.container-footer footer .redes-footer .fa-facebook-f:hover{
+    background: #41579A;
+    color: #fff;
+}
+
+.container-footer footer .redes-footer .fa-instagram:hover{
+    background: linear-gradient(to top right, #FCDE30, #E9712A, #D2313B, #AE4198, #7540A1, #5443A8); /*Esto nos sirve para hacer un degradado*/
+    color: #fff;
+}
+
+.container-footer footer .redes-footer .fa-google-plus-g:hover{
+    background: #DE4C34;
+    color: #fff;
+}
+
+.container-footer footer hr{
+    margin-top: 20px;
+    border: none;
+    height: 2px;
+    background: #c0c0c07a;
+}
+
+.container-footer h4{
+    text-align: center;
+    margin-top: 20px;
+    color: #8e8e8e;
+    font-weight: 500;
+}
+
+
+/*Responsive Desing - adaptable a dispositivos moviles*/
+/*Todo esto es para lograr hacer que la pagina se adapte a cualquier dispositivo*/
+
+@media screen and (max-width: 1220px){
+
+    .header-content,
+    .container-footer footer{
+        max-width: 1000px;
+        padding: 0 20px;
+    }
+}
+
+@media screen and (max-width: 800px){
+    
+    .body{
+        overflow: hidden; /*Esto solo era para quitar una barra que salia al momento de hacer pequeña la pagina*/
+    }
+
+    .container-all{
+        transition: all 300ms cubic-bezier(1,0,0,1); /*El cubic sirve para controlar el tiempo de movimiento de la transicion*/
+    }
+
+    .move-container-all{
+        transform: translateX(300px);
+    }
+
+        /* Adaptaciones para móviles */
+    .menu{
+        width: 0px;
+        height: 100vh;
+        position: fixed;
+        top: 80px;
+        left: 0;
+        background: #fff;
+        overflow: hidden;
+        transform: translateX(-350px);
+        box-shadow: 10px 0 20px -25px black;
+        transition: all 300ms cubic-bezier(1,0,0,1); /*El cubic sirve para controlar el tiempo de movimiento de la transicion*/
+    }
+
+    .show-lateral{
+        width: 300px;
+        transform: translateX(0px);
+    }
+
+    .menu nav ul{
+        flex-direction: column;
+    }
+
+    .menu nav ul li{
+        max-width: 200px;
+        height: 50px;
+        justify-content: flex-start;
+    }
+
+    .menu-select:before{
+        width: 0;
+    }
+
+    .menu nav ul li a{
+        margin-top: 40px;
+        color: #858585;
+    }
+    .menu nav ul li a i{
+        width: 20px;
+        display: inline-block;
+        margin-right: 10px;
+        color: orangered;
+    }
+
+    #icon-menu{
+        display: flex;
+    }
+
+    .container-aside{
+        flex-wrap: wrap;  /*Esta parte sirve para que los articulos bajen uno sobre el otro y sea responsive*/
+    }
+}

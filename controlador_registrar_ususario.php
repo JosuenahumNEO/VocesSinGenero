@@ -1,53 +1,89 @@
 <?php
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registro'])) {
-    include('conexion_bd.php');
-    // tomar los datos del formulario
-    $nombre = $_POST['nombre'];
-    $correo = $_POST['correo'];
-    $contraseña = $_POST['contraseña'];
-    $confirmar_contraseña = $_POST['confirmarcontraseña'];
 
-    // verifiicar que las contraseñas coincidan
-    if ($contraseña !== $confirmar_contraseña) {
-        echo "Las contraseñas no coinciden.";
-        exit;
+
+
+date_default_timezone_set('America/Mexico_City');
+$fechaHora = date('Y-m-d H:i:s');
+
+
+
+
+
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    //DECLARACION DE VARIABLES
+    $nombre = $_POST["nombre"];
+
+    $correo = $_POST["correo"];
+
+    $contraseña = $_POST["contraseña"];
+
+    $confirmarcontraseña = $_POST["confirmarcontraseña"];
+
+    
+/*
+    $imagen = $_FILES["imagen"]["tmp_name"];
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Verificar que se haya subido un archivo
+        if(isset($_FILES["imagen"]) && !empty($_FILES["imagen"]["tmp_name"])) {
+            // Guardar la imagen en una carpeta en el servidor
+            $carpeta_destino = "imgestudiantes/";
+            $nombre_imagen = $_FILES["imagen"]["name"];
+            $ruta_imagen = $carpeta_destino . $nombre_imagen;
+            move_uploaded_file($_FILES["imagen"]["tmp_name"], $ruta_imagen);
+        } else {
+            // Si no se subió una imagen, establecer la ruta de imagen como vacía
+            $ruta_imagen = '';
+        }
+
+*/
+
+
+
+
+
+    //VERFICACION DE DATOS
+    if (
+        !empty($nombre) &&
+        !empty($correo) &&
+        !empty($contraseña) &&
+        !empty($confirmarcontraseña)
+    ) {
+
+/*
+        $guardarimagen = "imgemepleados";
+        $b = fopen($guardarimagen, "a") or die("No se abrió el archivo :( " . $guardarimagen);
+        fwrite($b, $imagen);
+        fclose($b);
+        $ruta_imagen_db = $carpeta_destino . $nombre_imagen;
+*/
+
+
+        //conectameos base de datos del "Localhost/phpmyadmin"
+        $conexion = mysqli_connect("localhost", "root", "", "vsg");
+        // Ejecutar la consulta SQL
+        $resultado = mysqli_query($conexion, 'INSERT INTO usuarios(usuario, correo, contraseña) 
+ VALUES ("' . $nombre . '", "' . $correo . '", "' . $contraseña );
+
+        //EXPORTAR INFORMACION A ARCHIVO DE TEXTO
+        $informacionmandada = "--------------------NUEVO REGISTRO--------------------" . "\n" . "                  " . $fechaHora . "\n" .
+            "Nombre: " . $nombre . "\n" .
+            "CURP: " . $correo . "\n" .
+            "Contraseña: " . $confirmarcontraseña . "\n" .
+            "Sexo: " . $confirmarcontraseña .
+            "\n";
+
+
+        $archivo = "registros.txt";
+
+
+        $a = fopen($archivo, "a") or die("No se abrió el archivo :( " . $archivo);
+        fwrite($a, $informacionmandada);
+        fclose($a);
+
+        header('Location: registro_usuario.php');
     }
-
-    // "hashear" la contraseña (encriptarla)
-    $contraseña_hash = password_hash($contraseña, PASSWORD_DEFAULT);
-
-    // Preparar la consulta SQL
-    $sql = "INSERT INTO usuarios (usuario, correo, contraseña, fecha_registro) VALUES ($nombre, $correo, $contraseña, NOW())";
-    $stmt = $conexion->prepare($sql);
-
-    $sql = mysqli_query($conexion, 'INSERT INTO usuarios(usuario,correo,contraseña,fecha_registro) 
-    VALUES ("' . $nombre . '", "' . $correo . '", "' . $contraseña . '",
-     "' . $sexo . '")');
-   
-   
-
-    // Bind de los parámetros
-    $stmt->bindParam(':usuario', $nombre, PDO::PARAM_STR);
-    $stmt->bindParam(':correo', $correo, PDO::PARAM_STR);
-    $stmt->bindParam(':contraseña', $contraseña_hash, PDO::PARAM_STR);
-
-    // Ejecutar la consulta
-    if ($stmt->execute()) {
-        // Mensaje de éxito
-        echo "Usuario registrado correctamente.";
-
-        // Guardar el registro en un archivo de texto
-        $fecha = new DateTime('now', new DateTimeZone('America/Mexico_City')); // Zona horaria de México
-        $fecha_formateada = $fecha->format('Y-m-d H:i:s'); // Formato de fecha y hora
-
-        // Texto a guardar en el archivo
-        $texto_registro = "El usuario $nombre se ha registrado el $fecha_formateada.\n";
-
-        // Guardar en el archivo
-        $archivo = 'registros.txt';
-        file_put_contents($archivo, $texto_registro, FILE_APPEND | LOCK_EX); // FILE_APPEND añade al archivo, LOCK_EX bloquea el archivo mientras se escribe
-    } else {
-        echo "Error al registrar el usuario.";
-    }
+} else {
 }
-?>

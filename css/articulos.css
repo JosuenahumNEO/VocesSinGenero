@@ -22,6 +22,28 @@
     left: 0; 
 }
 
+.blog-container-cover-inf{
+    width: 100%;
+    height: 500px;
+    position: relative;
+    margin-top: 80px;
+    background-image: linear-gradient(100deg, #000000, #00000020),
+		url('../Voces/img30.jpg');
+	height: 60rem;
+	background-size: cover;
+	background-position: center;
+    background-repeat: no-repeat;
+}
+
+.blog-container-cover-inf:before{
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0; 
+}
+
 .container-cover-info{
     max-width: 800px;
     height: 500px;

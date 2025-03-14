@@ -1,5 +1,4 @@
-/* Importación de fuentes de Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 /* Reset de estilos y configuración global */
 *{
@@ -7,17 +6,45 @@
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
-    font-family: "Roboto Condensed", serif;
 }
 
-body{
-    background:#f6f6f6 ;
+:root {
+	--primary-color: #278257;
+	--background-color: #e5fcf1;
+	--dark-color: #151515;
 }
 
-/* Estilos para la barra de navegación (header) */
+html {
+	font-size: 62.5%;
+	font-family: 'Poppins', sans-serif;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* ********************************** */
+/*             UTILIDADES             */
+/* ********************************** */
+.container {
+	max-width: 120rem;
+	margin: 0 auto;
+}
+
+.heading-1 {
+	text-align: center;
+	font-weight: 500;
+	font-size: 3rem;
+}
+
+/* ********************************** */
+/*               HEADER               */
+/* ********************************** */
 header{
-    position: fixed; /* Mantiene el header fijo en la parte superior */
-    top: 0;
+	position: fixed; /* Mantiene el header fijo en la parte superior */
+	top: 0;
     left: 0;
     width: 100%;
     height: 80px;
@@ -26,171 +53,167 @@ header{
     z-index: 2;
 }
 
-/* Contenedor del header para organizar elementos */
-.header-content{
-    max-width: 1200px;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
+.container-hero {
+	background-color: var(--background-color);
 }
 
-/* Logo del header */
-.logo{
-    height: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.hero {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 2rem 0;
 }
 
-.logo h1 b{
-    color: orangered;
+.customer-support {
+	display: flex;
+	align-items: center;
+	gap: 2rem;
 }
 
-/* Menú de navegación */
-.menu{
-    height: 80px;
+.customer-support i {
+	font-size: 3.3rem;
 }
 
-.menu nav{
-    height: 100%;
+.content-customer-support {
+	display: flex;
+	flex-direction: column;
 }
 
-.menu nav ul{
-    height: 100%;
-    display: flex;
-    list-style: none;
+.container-logo {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
 }
 
-.menu nav ul li{
-    height: 100%;
-    margin: 0px 20px ;
-    display: flex;  
-    justify-content: center;
-    align-items: center;
-    position: relative;
+.container-logo i {
+	font-size: 3rem;
 }
 
-/* Indicador visual del menú seleccionado */
-.menu-select:before{
-    content: '';
-    width: 100%;
-    height: 4px;
-    background: orangered;
-    position: absolute;
-    top: 0;
-    left: 0;
+.container-logo h1 a {
+	text-decoration: none;
+	color: #000;
+	font-size: 3rem;
+	text-transform: uppercase;
+	letter-spacing: -1px;
 }
 
-/* Estilos de los enlaces del menú */
-.menu nav ul li a{
-    color: #777777;
-    font-size: 18px;
-    transition: color 300ms ;
+.container-user {
+	display: flex;
+	gap: 1rem;
+	cursor: pointer;
 }
 
-.menu nav ul li a:hover{  /*Cada que pase el raton en la seccion de menu*/
-    color: orangered;
+.container-user .fa-user {
+	font-size: 3rem;
+	color: var(--primary-color);
+	padding-right: 2.5rem;
 }
 
-.menu .text-menu-select{
-    color: orangered;
+.container-user .fa-heart {
+	font-size: 3rem;
+	color: var(--primary-color);
+	padding-left: 1rem;
 }
 
-.menu nav ul li a i{
-    display: none;
+.content-shopping-cart {
+	display: flex;
+	flex-direction: column;
 }
 
-/* Ícono del menú para dispositivos móviles */
-#icon-menu{
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    right: 20px;
-    top: 16px;
-    padding: 10px;
-    font-size: 20px;
-    background: #eeeeeefa;
-    border-radius: 100%;
-    color: #787878;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
+/* ************* NAVBAR ************* */
+.container-navbar {
+	background-color: var(--primary-color);
 }
 
-#icon-menu:hover{
-    opacity: 0.8;
+.navbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1rem 0;
 }
 
-/*footer - pie de pagina*/
-
-.container-footer{
-    width: 100%;
-    padding: 40px 0;
-    background: #fff;
-    margin-top: 40px;
+.navbar .fa-bars {
+	display: none;
 }
 
-.container-footer footer{
-    max-width: 1200px;
-    margin: auto;
+.menu {
+	display: flex;
+	gap: 2rem;
 }
 
-.container-footer footer .logo-footer{
-    text-align: center;
+.menu li {
+	list-style: none;
 }
 
-.container-footer footer .logo-footer img{
-    width: 100px;
+.menu a {
+	text-decoration: none;
+	font-size: 1.3rem;
+	color: var(--dark-color);
+	font-weight: 600;
+	text-transform: uppercase;
+	position: relative;
 }
 
-/* Redes sociales en el footer */
-.container-footer footer .redes-footer{
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
+.menu a::after {
+	content: '';
+	width: 1.5rem;
+	height: 1px;
+	background-color: #fff;
+	position: absolute;
+	bottom: -3px;
+	left: 50%;
+	transform: translate(-50%, 50%);
+	opacity: 0;
+	transition: all 0.3s ease;
 }
 
-.container-footer footer .redes-footer .icon-redes-footer{
-    font-size: 20px;
-    margin: 20px;
-    background: #efefef;
-    width: 50px;
-    height: 50px;
-    display: flex;            /*Estas 3 lineas sirven para centrar los iconos*/
-    justify-content: center;
-    align-items: center;
-    border-radius: 100%;
-    color: #a2a2a2;
+.menu a:hover::after {
+	opacity: 1;
 }
 
-.container-footer footer .redes-footer .fa-facebook-f:hover{
-    background: #41579A;
-    color: #fff;
+.menu a:hover {
+	color: #fff;
 }
 
-.container-footer footer .redes-footer .fa-instagram:hover{
-    background: linear-gradient(to top right, #FCDE30, #E9712A, #D2313B, #AE4198, #7540A1, #5443A8); /*Esto nos sirve para hacer un degradado*/
-    color: #fff;
+.search-form {
+	position: relative;
+	display: flex;
+	align-items: center;
+	border: 2px solid #fff;
+	border-radius: 2rem;
+	background-color: #fff;
+	height: 4.4rem;
+	overflow: hidden;
 }
 
-.container-footer footer .redes-footer .fa-google-plus-g:hover{
-    background: #DE4C34;
-    color: #fff;
+.search-form input {
+	outline: none;
+	font-family: inherit;
+	border: none;
+	width: 25rem;
+	font-size: 1.4rem;
+	padding: 0 2rem;
+	color: #777;
+	cursor: pointer;
 }
 
-.container-footer footer hr{
-    margin-top: 20px;
-    border: none;
-    height: 2px;
-    background: #c0c0c07a;
+.search-form input::-webkit-search-cancel-button {
+	appearance: none;
 }
 
-.container-footer h4{
-    text-align: center;
-    margin-top: 20px;
-    color: #8e8e8e;
-    font-weight: 500;
+.search-form .btn-search {
+	border: none;
+	background-color: var(--primary-color);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	padding: 1rem;
+}
+
+.btn-search i {
+	font-size: 2rem;
+	color: #fff;
 }
 
 

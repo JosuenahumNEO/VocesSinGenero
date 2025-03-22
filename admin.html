@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .panel {
+            max-width: 800px;
+            width: 100%;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #333;
+            text-align: center;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #007acc;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #005fa3;
+        }
+        .trivia-container {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="panel">
+        <h2>Panel de Administración</h2>
+        <form action="procesar_publicacion.php" method="POST">
+            <label for="titulo">Título:</label>
+            <input type="text" id="titulo" name="titulo" required>
+
+            <label for="contenido">Publicación:</label>
+            <textarea id="contenido" name="contenido" rows="5" required></textarea>
+
+            <label for="autor">Autor:</label>
+            <input type="text" id="autor" name="autor" required>
+
+            <label for="etiquetas">Etiquetas (separadas por comas):</label>
+            <input type="text" id="etiquetas" name="etiquetas" required>
+
+            <div class="trivia-container">
+                <h3>Añadir Trivia</h3>
+                <label for="pregunta">Pregunta:</label>
+                <input type="text" id="pregunta" name="pregunta">
+                
+                <label for="respuesta1">Opción 1:</label>
+                <input type="text" id="respuesta1" name="respuesta1">
+                <input type="radio" name="correcta" value="1"> Correcta
+                
+                <label for="respuesta2">Opción 2:</label>
+                <input type="text" id="respuesta2" name="respuesta2">
+                <input type="radio" name="correcta" value="2"> Correcta
+                
+                <label for="respuesta3">Opción 3:</label>
+                <input type="text" id="respuesta3" name="respuesta3">
+                <input type="radio" name="correcta" value="3"> Correcta
+                
+                <label for="respuesta4">Opción 4:</label>
+                <input type="text" id="respuesta4" name="respuesta4">
+                <input type="radio" name="correcta" value="4"> Correcta
+            </div>
+            
+            <button type="submit">Publicar</button>
+            <button onclick="window.history.back()" style="background:red;">Regresar</button>
+        </form>
+    </div>
+</body>
+</html>

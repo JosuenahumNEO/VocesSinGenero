@@ -3,105 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel de Administración</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f4f4f4;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .panel {
-            max-width: 800px;
-            width: 100%;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h2 {
-            color: #333;
-            text-align: center;
-        }
-        label {
-            font-weight: bold;
-            display: block;
-            margin-top: 10px;
-        }
-        input, textarea, select {
-            width: 100%;
-            padding: 8px;
-            margin-top: 5px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        button {
-            background-color: #007acc;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            margin-top: 10px;
-        }
-        button:hover {
-            background-color: #005fa3;
-        }
-        .trivia-container {
-            margin-top: 20px;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            background: #f9f9f9;
-        }
-    </style>
+
+    <!--este es el script pa cargar el editor tipo word(esta importado pero aun no se carga)-->
+    <script src="js/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="js/editor_texto_publicar_notas.js" ></script>
+    <title>Voces sin Género - Panel Admin</title>
+    <link rel="stylesheet" href="css/admin.css">
 </head>
 <body>
-    <div class="panel">
-        <h2>Panel de Administración</h2>
-        <form action="procesar_publicacion.php" method="POST">
-            <label for="titulo">Título:</label>
-            <input type="text" id="titulo" name="titulo" required>
-
-            <label for="contenido">Publicación:</label>
-            <textarea id="contenido" name="contenido" rows="5" required></textarea>
-
-            <label for="autor">Autor:</label>
-            <input type="text" id="autor" name="autor" required>
-
-            <label for="etiquetas">Etiquetas (separadas por comas):</label>
-            <input type="text" id="etiquetas" name="etiquetas" required>
-
-            <div class="trivia-container">
-                <h3>Añadir Trivia</h3>
-                <label for="pregunta">Pregunta:</label>
-                <input type="text" id="pregunta" name="pregunta">
-                
-                <label for="respuesta1">Opción 1:</label>
-                <input type="text" id="respuesta1" name="respuesta1">
-                <input type="radio" name="correcta" value="1"> Correcta
-                
-                <label for="respuesta2">Opción 2:</label>
-                <input type="text" id="respuesta2" name="respuesta2">
-                <input type="radio" name="correcta" value="2"> Correcta
-                
-                <label for="respuesta3">Opción 3:</label>
-                <input type="text" id="respuesta3" name="respuesta3">
-                <input type="radio" name="correcta" value="3"> Correcta
-                
-                <label for="respuesta4">Opción 4:</label>
-                <input type="text" id="respuesta4" name="respuesta4">
-                <input type="radio" name="correcta" value="4"> Correcta
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h1>Voces sin Género</h1>
+            <nav>
+                <button class="nav-btn active" data-section="crear-post">Crear Publicación</button>
+                <button class="nav-btn" data-section="usuarios">Administradores</button>
+                <button class="nav-btn" data-section="estadisticas">Estadísticas</button>
+            </nav>
+            <div class="user-info">
+                <p>Bienvenid@, [Admin]</p>
+                <button class="logout-btn">Cerrar Sesión</button>
             </div>
-            
-            <button type="submit">Publicar</button>
-            <button onclick="window.history.back()" style="background:red;">Regresar</button>
-        </form>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Crear Publicación Section -->
+            <section id="crear-post" class="content-section active">
+                <h2>Crear Nueva Publicación</h2>
+                <form class="post-form">
+                    <div class="form-group">
+                        <label for="titulo">Título:</label>
+                        <input type="text" id="titulo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="descripcion">Descripción:</label>
+                        <textarea id="descripcion" rows="5" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="imagen">Imagen de cabecera:</label>
+                        <input type="file" id="imagen" accept="image/*"><br><br>
+                        
+                        <label for="imagen">Primera imagen de cuerpo de la nota(aparecerá en medio de la nota):</label>
+                        <input type="file" id="imagen" accept="image/*"><br><br>
+
+                        <label for="imagen">Segunda imagen de cuerpo de la nota(aparecerá en medio de la nota):</label>
+                        <input type="file" id="imagen" accept="image/*">
+                    </div>
+                    <button type="submit" class="submit-btn">Publicar</button>
+                </form>
+            </section>
+
+            <!-- Usuarios Registrados Section -->
+            <section id="usuarios" class="content-section">
+                <h2>Usuarios Registrados</h2>
+                <div class="user-table-container">
+                    <table class="user-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Email</th>
+                                <th>Rol</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Ejemplo de datos - Debes conectar con tu DB -->
+                            <tr>
+                                <td>1</td>
+                                <td>Admin Principal</td>
+                                <td>admin@vocessingenero.com</td>
+                                <td><span class="role-badge super-admin">Super Admin</span></td>
+                                <td>Activo</td>
+                            </tr>
+                            <!-- Repetir para otros 5 usuarios -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
     </div>
+
+    <script src="admin.js"></script>
 </body>
 </html>

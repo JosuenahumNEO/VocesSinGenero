@@ -37,7 +37,7 @@
                             <h2>Login</h2>
                             <div class="input-group">
                                 <input type="text" name="correo_login" required>
-                                <label>Correo electrónico</label>
+                                <label>Usuario</label>
                             </div>
                             <div class="input-group">
                                 <input type="password" name="contrasena_login" id="password" required>

@@ -35,4 +35,3 @@ function toggleSignUpPassword() {
         showPasswordBtn.textContent = "Show Password"; // Cambia el texto del botón
     }
 }
-

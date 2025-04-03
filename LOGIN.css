@@ -487,7 +487,10 @@ button {
     }
     
     .icon img {
-        width: 147px;
+        width: 100px;
+        float: none;
+        display: block;
+        margin: 0 auto 20px;
     }
     
     .content h1, .content .par {
@@ -506,5 +509,4 @@ button {
         font-size: 1.8rem;
     }
 }
-
 

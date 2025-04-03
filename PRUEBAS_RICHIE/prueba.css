@@ -1,12 +1,102 @@
-body {
-    font-family: Arial, sans-serif;
+* {
     margin: 0;
     padding: 0;
-    height: 200vh; /* Para simular una página larga */
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-#destino {
-    margin-top: 100vh;
-    padding: 20px;
-    background-color: lightblue;
+body {
+    min-height: 100vh;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main {
+    width: 1200px; /* Tamaño fijo para desktop */
+    background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%), url(img/igualdad\ de\ genero.jpg);
+    background-position: center;
+    background-size: cover;
+    min-height: 100vh;
+    position: relative;
+    margin: 0 auto; /* Centrado horizontal */
+}
+
+/* Mantenemos todos tus estilos originales para desktop */
+.navbar {
+    width: 1200px;
+    height: 75px;
+    margin: auto;
+}
+
+.icon img {
+    width: 13%;
+    float: left;
+    height: 10%;
+}
+
+.content {
+    width: 1200px;
+    height: auto;
+    margin: auto;
+    color: #fff;
+    position: relative;
+}
+
+.wrapper {
+    position: absolute;
+    width: 400px;
+    height: 500px;
+    background: #2c2e2c;
+    box-shadow: 0 0 50px #278257;
+    border-radius: 20px;
+    padding: 40px;
+    right: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Media Query solo para cuando la pantalla sea más pequeña que el diseño desktop */
+@media (max-width: 1250px) {
+    .main {
+        width: 100%;
+        padding: 20px;
+    }
+    
+    .navbar, .content {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .wrapper {
+        position: relative;
+        right: auto;
+        top: auto;
+        transform: none;
+        margin: 30px auto;
+    }
+    
+    .icon img {
+        width: 100px;
+        float: none;
+        display: block;
+        margin: 0 auto 20px;
+    }
+    
+    .content h1, .content .par {
+        text-align: center;
+    }
+}
+
+/* Ajustes para móviles muy pequeños */
+@media (max-width: 480px) {
+    .wrapper {
+        width: 95%;
+        padding: 20px;
+    }
+    
+    .content h1 {
+        font-size: 1.8rem;
+    }
 }

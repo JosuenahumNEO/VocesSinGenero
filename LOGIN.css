@@ -5,7 +5,7 @@
 
 .main{
     width: 100%;
-    background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%), url(img/igualdad\ de\ genero.jpg);
+    background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%), url(img/new\ fondo2.jpg);
     background-position: center;
     background-size: cover;
     height: 109vh;
@@ -18,9 +18,10 @@
 }
 
 .icon img{
-    width: 13%;
+    width: 9%;
     float: left;
-    height: 10%;
+    height: 18%;
+    position: absolute;
 }
 
 .logo{
@@ -111,7 +112,7 @@ ul li a:hover{
     width: 1200px;
     height: auto;
     margin: auto;
-    color: #fff;
+    color: #FFF;
     position: relative;
 }
 
@@ -119,6 +120,10 @@ ul li a:hover{
     padding-left: 20px;
     padding-bottom: 25px;
     font-family: Arial;
+    font-size: 15pt;
+    text-align: justify;
+    hyphens: auto;
+    color: #FFF;
     letter-spacing: 1.2px;
     line-height: 30px;
     margin-top: 30px;
@@ -154,7 +159,7 @@ background-color: #fff;
 }
 
 .content span{
-    color: #278257;
+    color: #00ff88;
     font-size: 65px;
 }
 
@@ -184,7 +189,7 @@ background-color: #fff;
     width: 240px;
     height: 35px;
     background: transparent;
-    border-bottom: 1px solid #278257;
+    border-bottom: 1px solid #00ff88;
     border-top: none;
     border-right: none;
     border-left: none;
@@ -207,7 +212,7 @@ background-color: #fff;
 .btnn{
     width: 240px;
     height: 40px;
-    background: #278257;
+    background: #00ff88;
     border: none;
     margin-top: 30px;
     font-size: 18px;
@@ -219,7 +224,7 @@ background-color: #fff;
 
 .btnn:hover{
     background: #fff;
-    color: #278257;
+    color: #00ff88;
 }
 
 .btnn a{
@@ -237,7 +242,7 @@ background-color: #fff;
 
 .form .link a{
     text-decoration: none;
-    color: #278257;
+    color: #00ff88;
 }
 
 .liw{
@@ -272,8 +277,8 @@ body {
     position: relative;
     width: 400px;
     height: 500px;
-    background: #636362;
-    box-shadow: 0 0 50px #278257;
+    background: #252826;
+    box-shadow: 0 0 50px #00ff88;
     border-radius: 20px;
     padding: 40px;
     overflow: hidden; /*esta linea de codigo se utiliza para esconder el segundo apartado dentro del recuadro*/
@@ -363,14 +368,14 @@ h2 {
 }
 
 .remember label input {
-    accent-color: #278257;
+    accent-color: #00ff88;
 }
 
 button {
     position: relative;
     width: 100%;
     height: 40px;
-    background: #278257;
+    background: #00ff88;
     box-shadow: 0 0 10px #278257;
     font-size: 16px;
     color: #000;
@@ -388,7 +393,7 @@ button {
     margin: 10px auto; /* Margen para centrado */
     display: block; /* Permite centrar usando margin */
     text-align: center; /* Centra el texto dentro del botón */
-    background-color: #278257; /* Color de fondo (opcional) */
+    background-color: #00ff88; /* Color de fondo (opcional) */
     color: #000; /* Color del texto */
     border: none; /* Elimina el borde */
     border-radius: 5px; /* Bordes redondeados */
@@ -396,7 +401,7 @@ button {
 }
 
 .show-password button:hover {
-    background-color: #278257; /* Efecto al pasar el mouse (opcional) */
+    background-color: #00ff88; /* Efecto al pasar el mouse (opcional) */
 }
 
 
@@ -407,7 +412,7 @@ button {
     margin: 10px auto; /* Margen para centrado */
     display: block; /* Permite centrar usando margin */
     text-align: center; /* Centra el texto dentro del botón */
-    background-color: #278257; /* Color de fondo (opcional) */
+    background-color: #00ff88; /* Color de fondo (opcional) */
     color: #000; /* Color del texto */
     border: none; /* Elimina el borde */
     border-radius: 5px; /* Bordes redondeados */
@@ -415,7 +420,7 @@ button {
 }
 
 .show-password button:hover {
-    background-color: #278257; /* Efecto al pasar el mouse (opcional) */
+    background-color: #00ff88; /* Efecto al pasar el mouse (opcional) */
 }
 
 
@@ -430,7 +435,7 @@ button {
 }
 
 .singUp-link p a {
-    color: #278257;
+    color: #0059ff;
     text-decoration: none;
     font-weight: 500;
 }
@@ -438,6 +443,8 @@ button {
 .singUp-link p a:hover {
     text-decoration: underline;
 }
+
+
 
 
 
@@ -487,7 +494,7 @@ button {
     }
     
     .icon img {
-        width: 100px;
+        width: 140px;
         float: none;
         display: block;
         margin: 0 auto 20px;
@@ -509,4 +516,3 @@ button {
         font-size: 1.8rem;
     }
 }
-

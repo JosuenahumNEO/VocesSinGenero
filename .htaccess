@@ -1,0 +1,12 @@
+RewriteEngine On
+
+# Permitir que archivos .html ejecuten PHP
+AddType application/x-httpd-php .html
+
+# Ocultar la extensión .php en la URL
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php [L]
+
+# Redireccionar index.html a index.php
+RewriteRule ^index\.html$ index.php [L]

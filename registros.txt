@@ -34,3 +34,13 @@ Correo: prueba12@icloud.com
 Fecha: 2025-03-14 09:14:55
 Nombre: prueba1
 Correo: prueba1@gmail.com
+---NUEVO REGISTRO---
+Fecha: 2025-04-05 19:51:51
+Nombre: josue123
+Correo: josue123@gmail.com
+
+---NUEVO REGISTRO---
+Fecha: 2025-04-05 21:20:01
+Nombre: josue1234
+Correo: josue1234@gmail.com
+

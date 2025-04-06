@@ -1,8 +1,20 @@
+
+
+<?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header("Location: LOGIN.php");
+    exit();
+}
+?>
+<!-- Tu contenido HTML normal aquí -->
+
 <!DOCTYPE html>
 <!-- Define el tipo de documento como HTML5 -->
 <html lang="en">
     <!-- Define el idioma principal del sitio como inglés -->
 <head>
+	
     <meta charset="UTF-8">
     <!-- Permite el uso de caracteres especiales y emojis -->
     <title>VocesSinGenero</title>
@@ -86,7 +98,8 @@
 
         <div class="blog-container-cover">
             <div class="container-cover-info">
-                <h1>¡Elige la igualdad como tu camino!</h1>
+                <h1><?php echo htmlspecialchars($_SESSION['usuario']); ?> ¡Elige la igualdad como tu camino!</h1>
+				
                 <p>El cambio comienza con cada uno de nosotros. En un mundo donde la equidad de género 
                     es clave, tus decisiones cuentan.
                     Da un paso firme hacia un futuro donde todos tengan las mismas oportunidades. 

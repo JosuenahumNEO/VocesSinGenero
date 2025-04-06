@@ -5,7 +5,7 @@
 
 .main{
     width: 100%;
-    background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%), url(img/igualdad\ de\ genero.jpg);
+    background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%), url(img/fondo2.jpeg);
     background-position: center;
     background-size: cover;
     height: 109vh;
@@ -18,9 +18,10 @@
 }
 
 .icon img{
-    width: 13%;
+    width: 9%;
     float: left;
-    height: 10%;
+    height: 18%;
+    position: absolute;
 }
 
 .logo{
@@ -111,7 +112,7 @@ ul li a:hover{
     width: 1200px;
     height: auto;
     margin: auto;
-    color: #fff;
+    color: #FFF;
     position: relative;
 }
 
@@ -119,6 +120,10 @@ ul li a:hover{
     padding-left: 20px;
     padding-bottom: 25px;
     font-family: Arial;
+    font-size: 15pt;
+    text-align: justify;
+    hyphens: auto;
+    color: #FFF;
     letter-spacing: 1.2px;
     line-height: 30px;
     margin-top: 30px;
@@ -154,7 +159,7 @@ background-color: #fff;
 }
 
 .content span{
-    color: #278257;
+    color: #00ff88;
     font-size: 65px;
 }
 
@@ -184,7 +189,7 @@ background-color: #fff;
     width: 240px;
     height: 35px;
     background: transparent;
-    border-bottom: 1px solid #278257;
+    border-bottom: 1px solid #00ff88;
     border-top: none;
     border-right: none;
     border-left: none;
@@ -207,7 +212,7 @@ background-color: #fff;
 .btnn{
     width: 240px;
     height: 40px;
-    background: #278257;
+    background: #00ff88;
     border: none;
     margin-top: 30px;
     font-size: 18px;
@@ -219,7 +224,7 @@ background-color: #fff;
 
 .btnn:hover{
     background: #fff;
-    color: #278257;
+    color: #00ff88;
 }
 
 .btnn a{
@@ -237,7 +242,7 @@ background-color: #fff;
 
 .form .link a{
     text-decoration: none;
-    color: #278257;
+    color: #00ff88;
 }
 
 .liw{
@@ -272,8 +277,8 @@ body {
     position: relative;
     width: 400px;
     height: 500px;
-    background: #000;
-    box-shadow: 0 0 50px #278257;
+    background: #252826;
+    box-shadow: 0 0 50px #00ff88;
     border-radius: 20px;
     padding: 40px;
     overflow: hidden; /*esta linea de codigo se utiliza para esconder el segundo apartado dentro del recuadro*/
@@ -363,14 +368,14 @@ h2 {
 }
 
 .remember label input {
-    accent-color: #278257;
+    accent-color: #00ff88;
 }
 
 button {
     position: relative;
     width: 100%;
     height: 40px;
-    background: #278257;
+    background: #00ff88;
     box-shadow: 0 0 10px #278257;
     font-size: 16px;
     color: #000;
@@ -388,7 +393,7 @@ button {
     margin: 10px auto; /* Margen para centrado */
     display: block; /* Permite centrar usando margin */
     text-align: center; /* Centra el texto dentro del botón */
-    background-color: #278257; /* Color de fondo (opcional) */
+    background-color: #00ff88; /* Color de fondo (opcional) */
     color: #000; /* Color del texto */
     border: none; /* Elimina el borde */
     border-radius: 5px; /* Bordes redondeados */
@@ -396,7 +401,7 @@ button {
 }
 
 .show-password button:hover {
-    background-color: #278257; /* Efecto al pasar el mouse (opcional) */
+    background-color: #00ff88; /* Efecto al pasar el mouse (opcional) */
 }
 
 
@@ -407,7 +412,7 @@ button {
     margin: 10px auto; /* Margen para centrado */
     display: block; /* Permite centrar usando margin */
     text-align: center; /* Centra el texto dentro del botón */
-    background-color: #278257; /* Color de fondo (opcional) */
+    background-color: #00ff88; /* Color de fondo (opcional) */
     color: #000; /* Color del texto */
     border: none; /* Elimina el borde */
     border-radius: 5px; /* Bordes redondeados */
@@ -415,7 +420,7 @@ button {
 }
 
 .show-password button:hover {
-    background-color: #278257; /* Efecto al pasar el mouse (opcional) */
+    background-color: #00ff88; /* Efecto al pasar el mouse (opcional) */
 }
 
 
@@ -430,7 +435,7 @@ button {
 }
 
 .singUp-link p a {
-    color: #278257;
+    color: #0059ff;
     text-decoration: none;
     font-weight: 500;
 }
@@ -439,3 +444,101 @@ button {
     text-decoration: underline;
 }
 
+
+
+
+
+/* desde aqui inicia el media query */
+@media (max-width: 1250px) {
+    .main {
+        width: 100%;
+        padding: 20px;
+    }
+    @media (max-width: 1024px) {
+        .main {
+            background-attachment: scroll; /* Mejor rendimiento en tablet */
+            background-size: contain; /* Opcional: muestra toda la imagen */
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .main {
+            height: auto;
+            padding-bottom: 50%; /* Mantiene proporción para móviles */
+            background-size: cover;
+            background-position: top center; /* Ajusta según necesidad */
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .main {
+            padding-bottom: 70%; /* Más altura en móviles pequeños */
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.7) 50%), 
+                        url(img/igualdad\ de\ genero.jpg);
+            background-size: cover;
+            background-position: 30% center; /* Ajuste fino para móviles */
+        }
+    }
+
+    .navbar, .content {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .wrapper {
+        position: relative;
+        right: auto;
+        top: auto;
+        transform: none;
+        margin: 30px auto;
+    }
+    
+    .icon img {
+        width: 140px;
+        float: none;
+        display: block;
+        margin: 0 auto 20px;
+    }
+    
+    .content h1, .content .par {
+        text-align: center;
+    }
+}
+
+/* Ajustes para móviles muy pequeños */
+@media (max-width: 480px) {
+    .wrapper {
+        width: 95%;
+        padding: 20px;
+    }
+    
+    .content h1 {
+        font-size: 1.8rem;
+    }
+}
+
+.error {
+    color: #ff0000;
+    margin-bottom: 10px;
+    padding: 10px;
+    background: #ffebeb;
+    border: 1px solid #ff0000;
+    border-radius: 5px;
+}
+.error {
+    color: #dc3545;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+}
+
+.success {
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+}

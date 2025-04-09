@@ -44,3 +44,13 @@ Fecha: 2025-04-05 21:20:01
 Nombre: josue1234
 Correo: josue1234@gmail.com
 
+---NUEVO REGISTRO---
+Fecha: 2025-04-05 23:43:30
+Nombre: Usuarioprueba
+Correo: prueba123@gmail.com
+
+---NUEVO REGISTRO---
+Fecha: 2025-04-07 08:59:42
+Nombre: brandom
+Correo: brandom@icloud.com
+

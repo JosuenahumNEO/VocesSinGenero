@@ -38,24 +38,39 @@ if (isset($_SESSION['error'])) {
             <h1>Voces sin Género</h1>
             <nav>
                 <button class="nav-btn active" data-section="crear-post">Crear Publicación</button>
-                <button class="nav-btn" data-section="usuarios">Administradores</button>
+                <button class="nav-btn" data-section="usuarios">Publicaciones</button>
                 <button class="nav-btn" data-section="estadisticas">Estadísticas</button>
+                <button  href="index.php"    class="nav-btn" ><a href="index.php">volverpe r9e9iippopoooo</a></button>
+
+
+
+                <div class="user-info" >
+                                <?php if ($_SESSION['admin']['tipo'] !== 'invitado'): ?>
+                                    <a href="logoutADMIN.php" class="logout-btn">  Cerrar sesion </a>
+                                <?php endif; ?>
+                            </div>
+
             </nav>
-            <div class="user-info" >
-                 <?php if ($_SESSION['admin']['tipo'] !== 'invitado'): ?>
-                    <a href="logoutADMIN.php" class="logout-btn">Cerrar Sesión</a>
-                <?php endif; ?>
-            </div>
+
+            
+            
         </aside>
 
         <main class="main-content">
-            <?php echo $mensaje; ?>
-            
+                    
+
             <section id="crear-post" class="content-section active">
                 
                 
                 <?php if ($_SESSION['admin']['tipo'] === 'invitado'): ?>
                     <h2>Panel no disponible</h2>
+
+
+
+
+
+
+                    
 
                     <p class="info-message">Estás viendo este apartado como invitado. No puedes crear publicaciones hasta                      <a href="#" id="openLogin">Iniciar sesión</a>
                     </p>
@@ -79,6 +94,14 @@ if (isset($_SESSION['error'])) {
                      <?php else: ?>
                         <p style="font-size: 20pt;" ><b>Bienvenido <?php echo htmlspecialchars($_SESSION['admin']['nombre']); ?> ¿Que publicarémos hoy?    </b></p><br>
                
+
+
+
+
+
+
+
+                        
                     <form class="post-form" enctype="multipart/form-data" method="POST" action="publicacionesconexion.php">
                         <div class="form-group">
                             <label for="titulo">Título:</label>

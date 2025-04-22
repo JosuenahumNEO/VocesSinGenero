@@ -1,0 +1,523 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.main{
+    width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%), url(img/new\ fondo2.jpg);
+    
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+.navbar{
+    width: 1200px;
+    height: 75px;
+    margin: auto;
+}
+
+.icon img{
+    width: 9%;
+    float: left;
+    height: 18%;
+    position: absolute;
+}
+
+.logo{
+    color: #278257;
+    font-size: 45px;
+    font-family: Arial;
+    padding-left: 10px;
+    float: left;
+    padding-top: 10px;
+}
+
+.menu{
+    width: 400px;
+    float: left;
+    height: 70px;
+}
+
+ul{
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ul li{
+    list-style: none;
+    margin-left: 62px;
+    margin-top: 27px;
+    font-size: 17px;
+}
+ul li a{
+    text-decoration: none;
+    color: #fff;
+    font-family: Arial;
+    font-weight: bold;
+    transition: 0.4s ease-in-out;
+}
+
+ul li a:hover{
+    color: #278257;
+}
+
+.search{
+    width: 340px;
+    position: relative;
+    left: 950px;
+    top: -70px;
+
+}
+
+.srch{
+    font-family: 'Times New Roman';
+    width: 200px;
+    height: 40px;
+    background: transparent;
+    border: 1px solid white;
+    margin-top: 13px;
+    color: #fff;
+    border-right: none;
+    font-size: 16px;
+    float: left;
+    padding: 10px;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.btn{
+    width: 100px;
+    height: 50px;
+    background: #0ef;
+    border: 10px solid #0ef;
+    margin-top: 13px;
+    color: black;
+    font-size: 17px;
+    border-bottom-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.btn:focus{
+    outline: none;
+}
+
+.srch:focus{
+    outline: none;
+}
+
+.content{
+    width: 1200px;
+    height: auto;
+    margin: auto;
+    color: #FFF;
+    position: relative;
+}
+
+.content .par{
+    padding-left: 20px;
+    padding-bottom: 25px;
+    font-family: Arial;
+    font-size: 15pt;
+    text-align: justify;
+    hyphens: auto;
+    color: #FFF;
+    letter-spacing: 1.2px;
+    line-height: 30px;
+    margin-top: 30px;
+}
+
+.content h1{
+    font-size: 40px;
+    padding-left: 20px;
+    margin-top: 12%;
+    letter-spacing: 2px;
+}
+
+.content .cn{
+    width: 160px;
+    height: 40px;
+    background: #278257;
+    border: none;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .4s ease;
+}
+
+.content .cn a{
+    text-decoration: none;
+    color: #000;
+    transition: .3s ease;
+}
+.cn:hover{
+background-color: #fff;
+}
+
+.content span{
+    color: #00ff88;
+    font-size: 65px;
+}
+
+.form{
+    width: 250px;
+    height: 380px;
+    background: linear-gradient(to top, rgba(0,0,0,0.8)50%,rgba(0,0,0,0.8)50%);
+    position: absolute;
+    top: -20px;
+    left: 950px;
+    border-radius: 10px;
+    padding: 25px;
+}
+
+.form h2{
+    width: 220px;
+    font-family: sans-serif;
+    text-align: center;
+    color: white;
+    font-size: 22px;
+    border-radius: 10px;
+    margin: 2px;
+    padding: 8px;
+}
+
+.form input{
+    width: 240px;
+    height: 35px;
+    background: transparent;
+    border-bottom: 1px solid #00ff88;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    color: #fff;
+    font-size: 15px;
+    letter-spacing: 1px;
+    margin-top: 30px;
+    font-family: sans-serif;
+}
+
+.form input:focus{
+    outline: none;
+}
+
+::placeholder{
+    color: #fff;
+    font-family: Arial;
+}
+
+.btnn{
+    width: 240px;
+    height: 40px;
+    background: #00ff88;
+    border: none;
+    margin-top: 30px;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #fff;
+    transition: 0.4s ease;
+}
+
+.btnn:hover{
+    background: #fff;
+    color: #00ff88;
+}
+
+.btnn a{
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+
+.form .link{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.form .link a{
+    text-decoration: none;
+    color: #00ff88;
+}
+
+.liw{
+    padding-top: 15px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.icons a{
+    text-decoration: none;
+    color: #fff;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wgth@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #000;
+}
+
+.wrapper {
+    position: relative;
+    width: 400px;
+    height: 500px;
+    background: #505953;
+    box-shadow: 0 0 50px #00ff88;
+    border-radius: 20px;
+    padding: 40px;
+    overflow: hidden; /*esta linea de codigo se utiliza para esconder el segundo apartado dentro del recuadro*/
+    transform: translateX(870px);
+    margin-top: -470px;
+}
+
+
+
+
+@keyframes animate {
+    100% {
+        filter: hue-rotate(360deg);
+    }
+}
+
+.form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    transition: 1s ease-in-out;
+}
+
+.wrapper.active .form-wrapper.sing-in {
+    transform: translateY(-450px);
+}
+
+.wrapper .form-wrapper.sing-up {
+    position: absolute;
+    top: 450px;
+    left: 0;
+}
+
+.wrapper.active .form-wrapper.sing-up {
+    transform: translateY(-450px);
+}
+
+h2 {
+    font-size: 30px;
+    color: #fff;
+    text-align: center;
+}
+
+.input-group{
+    position: relative;
+    margin: 25px 0;
+    border-bottom: 2px solid #fff;
+}
+
+.input-group label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.input-group input {
+    width: 320px;
+    height: 40px;
+    font-size: 16px;
+    color: #fff;
+    padding: 0 5px;
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+.input-group input:focus~label,
+.input-group input:valid~label {
+    top: -5px;
+}
+
+.remember {
+    margin: -5px 0 15px 5px;
+}
+
+.remember label {
+    color: #fff;
+    font-size: 14px;
+}
+
+.remember label input {
+    accent-color: #00ff88;
+}
+
+button {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    background: #00ff88;
+    box-shadow: 0 0 10px #278257;
+    font-size: 16px;
+    color: #000;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+}
+
+.show-remember button {
+    font-size: 15px; /* Tamaño de fuente más pequeño */
+    height: 20px;
+    width: 200px; /* Tamaño más reducido */
+    margin: 10px auto; /* Margen para centrado */
+    display: block; /* Permite centrar usando margin */
+    text-align: center; /* Centra el texto dentro del botón */
+    background-color: #00ff88; /* Color de fondo (opcional) */
+    color: #000; /* Color del texto */
+    border: none; /* Elimina el borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor a "puntero" */
+}
+
+.show-password button:hover {
+    background-color: #00ff88; /* Efecto al pasar el mouse (opcional) */
+}
+
+
+.show-password button {
+    font-size: 15px;
+    height: 20px;
+    width: 200px; /* Tamaño de fuente más pequeño */
+    margin: 10px auto; /* Margen para centrado */
+    display: block; /* Permite centrar usando margin */
+    text-align: center; /* Centra el texto dentro del botón */
+    background-color: #00ff88; /* Color de fondo (opcional) */
+    color: #000; /* Color del texto */
+    border: none; /* Elimina el borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor a "puntero" */
+}
+
+.show-password button:hover {
+    background-color: #00ff88; /* Efecto al pasar el mouse (opcional) */
+}
+
+
+.singUp-link {
+    font-size: 14px;
+    text-align: center;
+    margin: 15px 0;
+}
+
+.singUp-link p {
+    color: #fff;
+}
+
+.singUp-link p a {
+    color: #0088ff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.singUp-link p a:hover {
+    text-decoration: underline;
+}
+
+.terminos-link {
+    color: #0088ff;
+}
+
+/* desde aqui inicia el media query */
+@media (max-width: 1250px) {
+    .main {
+        width: 100%;
+        padding: 20px;
+    }
+    
+    .navbar, .content {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .wrapper {
+        position: relative;
+        right: auto;
+        top: auto;
+        transform: none;
+        margin: 100px auto;
+    }
+    
+    .icon img {
+        width: 140px;
+        float: none;
+        display: block;
+        margin: 0 auto 20px;
+    }
+    
+    .content h1, .content .par {
+        text-align: center;
+    }
+}
+
+@media (max-width: 1024px) {
+    .main {
+      background-attachment: scroll;
+      background-size: cover; /* No usar contain si quieres que cubra toda la pantalla */
+      background-position: center;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .main {
+        background-attachment: scroll; /* para evitar bugs en móviles */
+        background-size: cover;
+        background-position: center;
+        min-height: 100vh;
+        padding-bottom: 20px;
+    }
+  }
+  
+
+
+/* Ajustes para móviles muy pequeños */
+@media (max-width: 480px) {
+    .main {
+      padding-bottom: 70%;
+      background: linear-gradient(to top, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.7) 50%),
+                  url("img/new fondo2.jpg");
+      background-size: cover;
+      background-position: center;
+    }
+  
+    .wrapper {
+      width: 95%;
+      padding: 20px;
+    }
+  
+    .content h1 {
+      font-size: 1.8rem;
+    }
+  }

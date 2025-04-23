@@ -676,6 +676,7 @@ input[type="radio"]{
 }
 
 
+
 @media screen and (max-width: 1200px){
     .posts {
         grid-template-columns: repeat(3, 1fr);

@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $contrasena = mysqli_real_escape_string($conexion, $_POST['contrasena']);
 
     // Consulta para verificar credenciales
-    $query = "SELECT * FROM admin WHERE nombre = '$usuario' AND contraseña = '$contrasena'";
+    $query = "SELECT * FROM usuarios WHERE nombre = '$usuario' AND contraseña = '$contrasena'";
     $resultado = mysqli_query($conexion, $query);
 
     if (mysqli_num_rows($resultado) == 1) {

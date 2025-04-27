@@ -20,6 +20,14 @@ if (isset($_SESSION['error'])) {
     $mensaje = '<div class="error-message">' . $_SESSION['error'] . '</div>';
     unset($_SESSION['error']);
 }
+
+
+include(__DIR__ . '/conexion.php'); 
+$con = connection();
+
+$sql = "SELECT * FROM publicaciones";
+$query = mysqli_query($con, $sql);
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -30,7 +38,10 @@ if (isset($_SESSION['error'])) {
     <script src="js/editor_texto_publicar_notas.js"></script>
     <title>Voces sin Género - Panel Admin</title>
     <link rel="stylesheet" href="css/admin.css">
-    <?php  include('conexion_bd.php') ?>
+    <?php  
+    include(__DIR__ . '/conexion_bd.php'); 
+    
+    ?>
 </head>
 <body>
     <div class="admin-container">
@@ -104,6 +115,40 @@ if (isset($_SESSION['error'])) {
             </section>
 
             <!-- Aquí puedes añadir las otras secciones como usuarios y estadísticas -->
+
+        
+            <div>
+                <h2>Publicaciones </h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Titulo</th>
+                            <th>Descripcion</th>
+                            <th>Imagen1</th>
+                            <th>Imagen2</th>
+                            <th>Imagen3</th>
+                            <th>Fecha</th>
+                            <th>Admin</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php while($row = mysqli_fetch_array($query)): ?>
+                        <tr>
+                            <th><?= $row['ID_PUBLICACIONES'] ?></th>
+                            <th><?= $row['Titulo'] ?></th>
+                            <th><?= $row['Descripcion'] ?></th>
+                            <th><img src="mostrar_imagen.php?id=<?= $row['ID_PUBLICACIONES'] ?>&tipo=Imagen1" width="100"></th>
+                            <th><?= $row[''] ?></th>
+                            <th><?= $row[''] ?></th>
+                            <th><a href="">Editar</a></th>
+                            <th><a href="">Eliminar</a></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
         </main>
     </div>
 

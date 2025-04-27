@@ -54,3 +54,8 @@ Fecha: 2025-04-07 08:59:42
 Nombre: brandom
 Correo: brandom@icloud.com
 
+---NUEVO REGISTRO---
+Fecha: 2025-04-26 20:29:38
+Nombre: RRRRRRRRRR
+Correo: rpreciad9@gmail.com
+

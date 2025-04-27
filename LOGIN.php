@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login_submit'])) {
     $usuario = mysqli_real_escape_string($conexion, trim($_POST['usuario_login']));
     $password = trim($_POST['password_login']);
 
-    $stmt = mysqli_prepare($conexion, "SELECT id, usuario, contraseña FROM usuarios WHERE usuario = ?");
+    $stmt = mysqli_prepare($conexion, "SELECT ID_USUARIO, Usuario, Contraseña FROM usuarios WHERE Usuario = ?");
     
     if ($stmt) {
         mysqli_stmt_bind_param($stmt, "s", $usuario);

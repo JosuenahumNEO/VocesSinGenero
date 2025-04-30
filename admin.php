@@ -109,7 +109,7 @@ if (isset($_SESSION['error'])) {
                         </div>
                         <div class="form-group">
                             <label for="contenido">Contenido:</label>
-                            <textarea id="contenido" name="contenido" rows="5" required></textarea>
+                            <textarea id="descripcion" name="descripcion" rows="5" required></textarea>
                         </div>
                         <div class="form-group">
                             <label for="imagen_cabecera">Imagen de cabecera:</label>

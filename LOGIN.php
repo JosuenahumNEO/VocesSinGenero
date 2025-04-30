@@ -79,7 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login_submit'])) {
                         <?php endif; ?>
                         
                         <div class="input-group">
-                            <input type="text" name="usuario_login" required>
+                            <input type="text" name="usuario_login" required autocomplete="off">
                             <label>Usuario</label>
                         </div>
                         <div class="input-group">
@@ -109,11 +109,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login_submit'])) {
                         <?php endif; ?>
                         
                         <div class="input-group">
-                            <input type="text" name="nombre" required>
+                            <input type="text" name="nombre" required autocomplete="off">
                             <label>Nombre completo</label>
                         </div>
                         <div class="input-group">
-                            <input type="email" name="correo" required>
+                            <input type="email" name="correo" required autocomplete="off">
                             <label>Correo electrónico</label>
                         </div>
                         <div class="input-group">
@@ -138,7 +138,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login_submit'])) {
                         
                         <button type="submit" name="registro">Registrarse</button>
                         <div class="singUp-link">
-                            <p>¿Ya tienes cuenta? <a href="index.html" class="singInBtn-link">Iniciar Sesión</a></p>
+                            <p>¿Ya tienes cuenta? <a href="login.php" class="singInBtn-link">Iniciar Sesión</a></p>
                         </div>
                         <button type="button" onclick="window.history.back()" style="width: 25%; left: 40%;">Volver</button>
                     </form>

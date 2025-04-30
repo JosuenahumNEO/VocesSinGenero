@@ -77,8 +77,9 @@ if (!isset($_SESSION['user_id'])) {
 					<li><a href="http://localhost:3000/opiniones.php">Opiniones</a></li>
 					<li><a href="nosotros.html">Nosotros</a></li>
 					<li><a href="http://localhost:3000/admin.php">Admin</a></li>
-					
-					<li><a href="prueba_recuperacion_datos.php">Recuperacion</a></li>
+
+					<!-- con esto se recupera la publicacion de la base de dattos con el id numero 2x-->
+					<li><a href="plantilla.php?id=5">Recuperacion</a></li>
 
 				</ul>
 

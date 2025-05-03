@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--este es el script pa cargar el editor tipo word(esta importado pero aun no se carga)-->
+    <script src="js/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="js/editor_texto_publicar_notas.js" ></script>
+    <title>Voces sin Género - Panel Admin</title>
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h1>Voces sin Género</h1>
+            <nav>
+                <button class="nav-btn active" data-section="crear-post">Crear Publicación</button>
+                <button class="nav-btn" data-section="usuarios">Administradores</button>
+                <button class="nav-btn" data-section="estadisticas">Estadísticas</button>
+            </nav>
+            <div class="user-info">
+                <p>Bienvenid@, [Admin]</p>
+                <button class="logout-btn">Cerrar Sesión</button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Crear Publicación Section -->
+            <section id="crear-post" class="content-section active">
+                <h2>Crear Nueva Publicación</h2>
+                <form class="post-form">
+                    <div class="form-group">
+                        <label for="titulo">Título:</label>
+                        <input type="text" id="titulo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="descripcion">Descripción:</label>
+                        <textarea id="descripcion" rows="5" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="imagen">Imagen de cabecera:</label>
+                        <input type="file" id="imagen" accept="image/*"><br><br>
+                        
+                        <label for="imagen">Primera imagen de cuerpo de la nota(aparecerá en medio de la nota):</label>
+                        <input type="file" id="imagen" accept="image/*"><br><br>
+
+                        <label for="imagen">Segunda imagen de cuerpo de la nota(aparecerá en medio de la nota):</label>
+                        <input type="file" id="imagen" accept="image/*">
+                    </div>
+                    <button type="submit" class="submit-btn">Publicar</button>
+                </form>
+            </section>
+
+            <!-- Usuarios Registrados Section -->
+            <section id="usuarios" class="content-section">
+                <h2>Usuarios Registrados</h2>
+                <div class="user-table-container">
+                    <table class="user-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Email</th>
+                                <th>Rol</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Ejemplo de datos - Debes conectar con tu DB -->
+                            <tr>
+                                <td>1</td>
+                                <td>Admin Principal</td>
+                                <td>admin@vocessingenero.com</td>
+                                <td><span class="role-badge super-admin">Super Admin</span></td>
+                                <td>Activo</td>
+                            </tr>
+                            <!-- Repetir para otros 5 usuarios -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

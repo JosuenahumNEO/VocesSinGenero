@@ -1,22 +1,18 @@
 <?php
+// modelo/conexion_bd.php
 
-$host = "localhost";
-$user = "root";
-$password = "";
-$dbname = "vsg";
-
+$host = 'localhost'; // El servidor de la base de datos
+$dbname = 'vsg';     // El nombre de la base de datos
+$user = 'root';      // El usuario de la base de datos (por defecto es 'root' en XAMPP)
+$password = '';      // La contraseña de la base de datos (por defecto está vacía en XAMPP)
+$port = 3306;        // El puerto de la base de datos
 try {
-    $conexion = mysqli_connect($host, $user, $password, $dbname);
-    
-    if (!$conexion) {
-        throw new Exception("Error de conexión: " . mysqli_connect_error());
-    }
-    
-    if (!mysqli_set_charset($conexion, "utf8mb4")) {
-        throw new Exception("Error al configurar charset: " . mysqli_error($conexion));
-    }
-    
-} catch (Exception $e) {
-    die("Error crítico en la conexión: " . $e->getMessage());
+    $conexion = new PDO("mysql:host=$host;port=$port;dbname=$dbname", $user, $password);
+    // Configurar el manejo de errores
+    $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    // Configurar el juego de caracteres a UTF-8
+    $conexion->exec("SET NAMES 'utf8'");
+} catch (PDOException $e) {
+    echo "Error de conexión: " . $e->getMessage();
 }
 ?>

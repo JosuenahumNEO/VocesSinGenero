@@ -1,20 +1,8 @@
-
-
-<?php
-session_start();
-if (!isset($_SESSION['user_id'])) {
-    header("Location: LOGIN.php");
-    exit();
-}
-?>
-<!-- Tu contenido HTML normal aquí -->
-
 <!DOCTYPE html>
 <!-- Define el tipo de documento como HTML5 -->
 <html lang="en">
     <!-- Define el idioma principal del sitio como inglés -->
 <head>
-	
     <meta charset="UTF-8">
     <!-- Permite el uso de caracteres especiales y emojis -->
     <title>VocesSinGenero</title>
@@ -36,6 +24,7 @@ if (!isset($_SESSION['user_id'])) {
     <!-- Hace que el sitio sea responsivo para dispositivos móviles -->
 </head>
 
+<!-- El cuerpo del documento HTML -->	
 <body>
 	<header>
 		<div class="container-hero">
@@ -51,21 +40,19 @@ if (!isset($_SESSION['user_id'])) {
 				<div class="container-logo">
 					<i class="fa-solid fa-face-meh-blank"></i>
 					<h1 class="logo"><a href="/">Voces Sin Genero</a></h1>
+
 				</div>
 
 				<div class="container-user">
-	
-					<a href="http://localhost:3000/LOGIN.php"><i class="fa-solid fa-user"></i></a>
-					<a href="#"><i class="fa-solid fa-heart"></i></a>
+					<a href="http://localhost:3000/LOGIN.php"><button>registro</button></a>
+					<a href="LOGIN.html"><button><i class="fa-solid fa-user"></i></button></a>
 
+					<i class="fa-solid fa-heart"></i>
 					<div class="content-shopping-cart">
 						<span class="text">Favoritos</span>
 						<span class="number">(0)</span>
 					</div>
 				</div>
-				
-
-				
 			</div>
 		</div>
 		
@@ -76,10 +63,7 @@ if (!isset($_SESSION['user_id'])) {
 					<li><a href="#">Inicio</a></li>
 					<li><a href="http://localhost:3000/opiniones.php">Opiniones</a></li>
 					<li><a href="nosotros.html">Nosotros</a></li>
-					<li><a href="http://localhost:3000/admin.php">Admin</a></li>
-
-					<!-- con esto se recupera la publicacion de la base de dattos con el id numero 2x-->
-					<li><a href="plantilla.php?id=6">Recuperacion</a></li>
+					<li><a href="admin.html">Admin</a></li>
 
 				</ul>
 
@@ -99,8 +83,7 @@ if (!isset($_SESSION['user_id'])) {
 
         <div class="blog-container-cover">
             <div class="container-cover-info">
-                <h1><?php echo htmlspecialchars($_SESSION['usuario']); ?> ¡Elige la igualdad como tu camino!</h1>
-				
+                <h1>¡Elige la igualdad como tu camino!</h1>
                 <p>El cambio comienza con cada uno de nosotros. En un mundo donde la equidad de género 
                     es clave, tus decisiones cuentan.
                     Da un paso firme hacia un futuro donde todos tengan las mismas oportunidades. 
@@ -417,7 +400,7 @@ if (!isset($_SESSION['user_id'])) {
 				/>
 			</section>
 
-			<section class="container blogs">
+			<!--<section class="container blogs">
 				<h1 class="heading-1">Últimos Blogs</h1>
 
 				<div class="container-blogs">
@@ -514,19 +497,19 @@ if (!isset($_SESSION['user_id'])) {
 						</ul>
 						<div class="social-icons">
 							<span class="facebook">
-								<a href="#" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+								<a href="#"><i class="fa-brands fa-facebook-f"></i></a>
 							</span>
 							<span class="x">
-								<a href="#" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+								<a href="#"><i class="fa-brands fa-x-twitter"></i></a>
 							</span>
 							<span class="youtube">
-								<a href="#" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+								<a href="#"><i class="fa-brands fa-youtube"></i></a>
 							</span>
 							<span class="pinterest">
-								<a href="#" target="_blank"><i class="fa-brands fa-pinterest-p"></i></a>
+								<a href="#"><i class="fa-brands fa-pinterest-p"></i></a>
 							</span>
 							<span class="instagram">
-								<a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+								<a href="#"><i class="fa-brands fa-instagram"></i></a>
 							</span>
 						</div>
 					</div>

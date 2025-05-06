@@ -86,9 +86,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login_submit'])) {
                             <input type="password" name="password_login" id="loginPassword" placeholder="Contraseña" required>
                             <i class="fas fa-eye toggle-icon" onclick="togglePassword('loginPassword', this)"></i>
                         </div>
-                        <button type="submit" name="login_submit" style="background-color: red;">Login</button>
+                        <button type="submit" name="login_submit">Login</button>
                         <div class="singUp-link">
-                            <p>¿No tienes cuenta? <a href="#" class="singUpBtn-link">Registrarse</a></p>
+                            <p>¿No tienes cuenta? <a href="#" class="singUpBtn-link" data-action="show-register">Registrarse</a></p>
                         </div>
                         <button type="button" onclick="window.history.back()" style="width: 25%; left: 40%;">Volver</button>
                     </form>
@@ -110,7 +110,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login_submit'])) {
                         
                         <div class="input-group">
                             <input type="text" name="nombre" required autocomplete="off">
-                            <label>Nombre completo</label>
+                            <label>Nombre de usuario</label>
                         </div>
                         <div class="input-group">
                             <input type="email" name="correo" required autocomplete="off">
@@ -138,7 +138,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login_submit'])) {
                         
                         <button type="submit" name="registro">Registrarse</button>
                         <div class="singUp-link">
-                            <p>¿Ya tienes cuenta? <a href="login.php" class="singInBtn-link">Iniciar Sesión</a></p>
+                            <p>¿Ya tienes cuenta? <a href="login.php" class="singInBtn-link" data-action="show-login" >Iniciar Sesión</a></p>
                         </div>
                         <button type="button" onclick="window.history.back()" style="width: 25%; left: 40%;">Volver</button>
                     </form>

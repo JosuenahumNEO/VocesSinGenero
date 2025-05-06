@@ -35,4 +35,15 @@ function toggleSignUpPassword() {
         showPasswordBtn.textContent = "Show Password"; // Cambia el texto del botón
     }
 }
-// comentario de prueba 22
+
+
+    const registroPassword = document.getElementById("registroPassword");
+
+    registroPassword.addEventListener("input", function () {
+        const value = registroPassword.value;
+
+        document.getElementById("rule-length").className = value.length >= 8 ? "valid" : "invalid";
+        document.getElementById("rule-uppercase").className = /[a-z]/.test(value) && /[A-Z]/.test(value) ? "valid" : "invalid";
+        document.getElementById("rule-number").className = /\d/.test(value) ? "valid" : "invalid";
+        document.getElementById("rule-special").className = /[^A-Za-z0-9]/.test(value) ? "valid" : "invalid";
+    });

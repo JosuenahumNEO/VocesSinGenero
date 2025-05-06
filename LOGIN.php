@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login_submit'])) {
     $usuario = mysqli_real_escape_string($conexion, trim($_POST['usuario_login']));
     $password = trim($_POST['password_login']);
 
-    $stmt = mysqli_prepare($conexion, "SELECT ID_USUARIO, Usuario, Contraseña FROM usuarios WHERE Usuario = ?");
+    $stmt = mysqli_prepare($conexion, "SELECT id, usuario, contraseña FROM usuarios WHERE usuario = ?");
     
     if ($stmt) {
         mysqli_stmt_bind_param($stmt, "s", $usuario);
@@ -126,6 +126,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login_submit'])) {
                         </div>
 
                         <p>Al crear cuenta aceptas nuestros <a href="terminos_condiciones.html">Términos y condiciones</a></p>
+                        
+                        <ul id="password-rules" style="list-style: none; padding-left: 0;">
+                            <li id="rule-length" class="invalid">✔ Mínimo de 8 caracteres</li>
+                            <li id="rule-uppercase" class="invalid">✔ Mayúsculas y minúsculas</li>
+                            <li id="rule-number" class="invalid">✔ Un número</li>
+                            <li id="rule-special" class="invalid">✔ Un carácter especial</li>
+                        </ul>
+
+                        
+                        
                         <button type="submit" name="registro">Registrarse</button>
                         <div class="singUp-link">
                             <p>¿Ya tienes cuenta? <a href="index.html" class="singInBtn-link">Iniciar Sesión</a></p>
@@ -136,7 +146,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login_submit'])) {
             </div>
         </div>
     </div>
-
+    
     <script src="LOGIN.js"></script>
     <script>
         // Función para mostrar/ocultar contraseñas
@@ -159,5 +169,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login_submit'])) {
             });
         });
     </script>
+    
 </body>
 </html>

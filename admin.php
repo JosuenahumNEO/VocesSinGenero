@@ -20,14 +20,6 @@ if (isset($_SESSION['error'])) {
     $mensaje = '<div class="error-message">' . $_SESSION['error'] . '</div>';
     unset($_SESSION['error']);
 }
-
-
-include(__DIR__ . '/conexion.php'); 
-$con = connection();
-
-$sql = "SELECT * FROM publicaciones";
-$query = mysqli_query($con, $sql);
-
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -38,10 +30,7 @@ $query = mysqli_query($con, $sql);
     <script src="js/editor_texto_publicar_notas.js"></script>
     <title>Voces sin Género - Panel Admin</title>
     <link rel="stylesheet" href="css/admin.css">
-    <?php  
-    include(__DIR__ . '/conexion_bd.php'); 
-    
-    ?>
+    <?php  include('conexion_bd.php') ?>
 </head>
 <body>
     <div class="admin-container">
@@ -49,24 +38,39 @@ $query = mysqli_query($con, $sql);
             <h1>Voces sin Género</h1>
             <nav>
                 <button class="nav-btn active" data-section="crear-post">Crear Publicación</button>
-                <button class="nav-btn" data-section="usuarios">Administradores</button>
+                <button class="nav-btn" data-section="usuarios">Publicaciones</button>
                 <button class="nav-btn" data-section="estadisticas">Estadísticas</button>
+                <button  href="index.php"    class="nav-btn" ><a href="index.php">volverpe r9e9iippopoooo</a></button>
+
+
+
+                <div class="user-info" >
+                                <?php if ($_SESSION['admin']['tipo'] !== 'invitado'): ?>
+                                    <a href="logoutADMIN.php" class="logout-btn">  Cerrar sesion </a>
+                                <?php endif; ?>
+                            </div>
+
             </nav>
-            <div class="user-info" >
-                 <?php if ($_SESSION['admin']['tipo'] !== 'invitado'): ?>
-                    <a href="logoutADMIN.php" class="logout-btn">Cerrar Sesión</a>
-                <?php endif; ?>
-            </div>
+
+            
+            
         </aside>
 
         <main class="main-content">
-            <?php echo $mensaje; ?>
-            
+                    
+
             <section id="crear-post" class="content-section active">
                 
                 
                 <?php if ($_SESSION['admin']['tipo'] === 'invitado'): ?>
                     <h2>Panel no disponible</h2>
+
+
+
+
+
+
+                    
 
                     <p class="info-message">Estás viendo este apartado como invitado. No puedes crear publicaciones hasta                      <a href="#" id="openLogin">Iniciar sesión</a>
                     </p>
@@ -90,6 +94,14 @@ $query = mysqli_query($con, $sql);
                      <?php else: ?>
                         <p style="font-size: 20pt;" ><b>Bienvenido <?php echo htmlspecialchars($_SESSION['admin']['nombre']); ?> ¿Que publicarémos hoy?    </b></p><br>
                
+
+
+
+
+
+
+
+                        
                     <form class="post-form" enctype="multipart/form-data" method="POST" action="publicacionesconexion.php">
                         <div class="form-group">
                             <label for="titulo">Título:</label>
@@ -115,40 +127,6 @@ $query = mysqli_query($con, $sql);
             </section>
 
             <!-- Aquí puedes añadir las otras secciones como usuarios y estadísticas -->
-
-        
-            <div>
-                <h2>Publicaciones </h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Titulo</th>
-                            <th>Descripcion</th>
-                            <th>Imagen1</th>
-                            <th>Imagen2</th>
-                            <th>Imagen3</th>
-                            <th>Fecha</th>
-                            <th>Admin</th>
-
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php while($row = mysqli_fetch_array($query)): ?>
-                        <tr>
-                            <th><?= $row['ID_PUBLICACIONES'] ?></th>
-                            <th><?= $row['Titulo'] ?></th>
-                            <th><?= $row['Descripcion'] ?></th>
-                            <th><img src="mostrar_imagen.php?id=<?= $row['ID_PUBLICACIONES'] ?>&tipo=Imagen1" width="100"></th>
-                            <th><?= $row[''] ?></th>
-                            <th><?= $row[''] ?></th>
-                            <th><a href="">Editar</a></th>
-                            <th><a href="">Eliminar</a></th>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
         </main>
     </div>
 

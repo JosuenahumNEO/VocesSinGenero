@@ -64,3 +64,13 @@ Fecha: 2025-04-10 13:30:28
 Nombre: yo
 Correo: yo@gmail.com
 
+---NUEVO REGISTRO---
+Fecha: 2025-05-08 09:31:08
+Nombre: Roberto
+Correo: talenteromanzanillense@gmail.com
+
+---NUEVO REGISTRO---
+Fecha: 2025-05-08 09:33:13
+Nombre: Goku
+Correo: talenteromanzanillense@gmail.com
+

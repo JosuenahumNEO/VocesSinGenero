@@ -280,30 +280,17 @@ body {
     position: relative;
     width: 400px;
     height: 500px;
-<<<<<<< HEAD
-    background: #252826;
-=======
     background: #505953;
->>>>>>> c5fc867c48c4de35abb2edee8176763e24b95aa7
     box-shadow: 0 0 50px #00ff88;
     border-radius: 20px;
     padding: 40px;
     overflow: hidden; /*esta linea de codigo se utiliza para esconder el segundo apartado dentro del recuadro*/
     transform: translateX(870px);
-<<<<<<< HEAD
-    margin-top: -500px;
-}
-
-.wrapper:hover {
-    animation: animate 5s linear infinite;
-}
-=======
     margin-top: -470px;
 }
 
 
 
->>>>>>> c5fc867c48c4de35abb2edee8176763e24b95aa7
 
 @keyframes animate {
     100% {
@@ -342,11 +329,7 @@ h2 {
 
 .input-group{
     position: relative;
-<<<<<<< HEAD
-    margin: 30px 0;
-=======
     margin: 25px 0;
->>>>>>> c5fc867c48c4de35abb2edee8176763e24b95aa7
     border-bottom: 2px solid #fff;
 }
 
@@ -454,11 +437,7 @@ button {
 }
 
 .singUp-link p a {
-<<<<<<< HEAD
-    color: #0059ff;
-=======
     color: #0088ff;
->>>>>>> c5fc867c48c4de35abb2edee8176763e24b95aa7
     text-decoration: none;
     font-weight: 500;
 }
@@ -467,15 +446,9 @@ button {
     text-decoration: underline;
 }
 
-<<<<<<< HEAD
-
-
-
-=======
 .terminos-link {
     color: #0088ff;
 }
->>>>>>> c5fc867c48c4de35abb2edee8176763e24b95aa7
 
 /* desde aqui inicia el media query */
 @media (max-width: 1250px) {
@@ -483,36 +456,7 @@ button {
         width: 100%;
         padding: 20px;
     }
-<<<<<<< HEAD
-    @media (max-width: 1024px) {
-        .main {
-            background-attachment: scroll; /* Mejor rendimiento en tablet */
-            background-size: contain; /* Opcional: muestra toda la imagen */
-        }
-    }
     
-    @media (max-width: 768px) {
-        .main {
-            height: auto;
-            padding-bottom: 50%; /* Mantiene proporción para móviles */
-            background-size: cover;
-            background-position: top center; /* Ajusta según necesidad */
-        }
-    }
-    
-    @media (max-width: 480px) {
-        .main {
-            padding-bottom: 70%; /* Más altura en móviles pequeños */
-            background: linear-gradient(to top, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.7) 50%), 
-                        url(img/igualdad\ de\ genero.jpg);
-            background-size: cover;
-            background-position: 30% center; /* Ajuste fino para móviles */
-        }
-    }
-
-=======
-    
->>>>>>> c5fc867c48c4de35abb2edee8176763e24b95aa7
     .navbar, .content {
         width: 100%;
         max-width: 100%;
@@ -523,11 +467,7 @@ button {
         right: auto;
         top: auto;
         transform: none;
-<<<<<<< HEAD
-        margin: 30px auto;
-=======
         margin: 100px auto;
->>>>>>> c5fc867c48c4de35abb2edee8176763e24b95aa7
     }
     
     .icon img {
@@ -542,53 +482,6 @@ button {
     }
 }
 
-<<<<<<< HEAD
-/* Ajustes para móviles muy pequeños */
-@media (max-width: 480px) {
-    .wrapper {
-        width: 95%;
-        padding: 20px;
-    }
-    
-    .content h1 {
-        font-size: 1.8rem;
-    }
-}
-
-.error {
-    color: #ff0000;
-    margin-bottom: 10px;
-    padding: 10px;
-    background: #ffebeb;
-    border: 1px solid #ff0000;
-    border-radius: 5px;
-}
-.error {
-    color: #dc3545;
-    background-color: #f8d7da;
-    border: 1px solid #f5c6cb;
-    padding: 10px;
-    margin-bottom: 15px;
-    border-radius: 4px;
-}
-
-.success {
-    color: #155724;
-    background-color: #d4edda;
-    border: 1px solid #c3e6cb;
-    padding: 10px;
-    margin-bottom: 15px;
-    border-radius: 4px;
-}
-    .valid {
-        color: green;
-        font-weight: bold;
-    }
-
-    .invalid {
-        color: gray;
-    }
-=======
 @media (max-width: 1024px) {
     .main {
       background-attachment: scroll;
@@ -628,4 +521,3 @@ button {
       font-size: 1.8rem;
     }
   }
->>>>>>> c5fc867c48c4de35abb2edee8176763e24b95aa7

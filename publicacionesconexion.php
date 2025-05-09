@@ -1,8 +1,11 @@
 <?php
 session_start();
 include(__DIR__ . '/conexion_bd.php');
-
+include(__DIR__ . '/loginADMIN.php');
 date_default_timezone_set('America/Mexico_City');
+
+
+$id_admin = $_SESSION['admin']['id_admin']; // Aquí obtienes el ID del admin
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['titulo'])) {
     // Validaciones iniciales
@@ -60,12 +63,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['titulo'])) {
             }
         }
     }
-    
+    if (!isset($_SESSION['admin'])) {
+    header("Location: login.php"); // O donde manejes logins
+    exit();
+}
     // Insertar en base de datos si no hay errores
     if (empty($errores)) {
         $stmt = $conexion->prepare("INSERT INTO publicaciones 
-            (titulo, descripcion, imagen1, imagen2, imagen3) 
-            VALUES (?, ?, ?, ?, ?)");
+            (titulo, descripcion, imagen1, imagen2, imagen3,id_admin) 
+            VALUES (?, ?, ?, ?, ?,?)");
         
         $stmt->bind_param(
             'sssss',
@@ -73,7 +79,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['titulo'])) {
             $descripcion,
             $nombresImagenes['imagen1'],
             $nombresImagenes['imagen2'],
-            $nombresImagenes['imagen3']
+            $nombresImagenes['imagen3'],
+            $_SESSION['admin']['id_admin']
+
+        
         );
         
         if ($stmt->execute()) {

@@ -40,7 +40,6 @@ if (isset($_SESSION['error'])) {
                 <button class="nav-btn active" data-section="crear-post">Crear Publicación</button>
                 <button class="nav-btn" data-section="usuarios">Publicaciones</button>
                 <button class="nav-btn" data-section="estadisticas">Estadísticas</button>
-                <button  href="index.php"    class="nav-btn" ><a href="index.php">volverpe r9e9iippopoooo</a></button>
 
 
 
@@ -53,7 +52,7 @@ if (isset($_SESSION['error'])) {
             </nav>
 
             
-            
+            <button ><a href="index.php">regresar2</a> </button>
         </aside>
 
         <main class="main-content">
@@ -109,7 +108,7 @@ if (isset($_SESSION['error'])) {
                         </div>
                         <div class="form-group">
                             <label for="contenido">Contenido:</label>
-                            <textarea id="contenido" name="contenido" rows="5" required></textarea>
+                            <textarea id="descripcion" name="descripcion" rows="5" required></textarea>
                         </div>
                         <div class="form-group">
                             <label for="imagen_cabecera">Imagen de cabecera:</label>

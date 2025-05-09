@@ -5,10 +5,13 @@
 
 .main{
     width: 100%;
-    background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%), url(img/fondo2.jpeg);
-    background-position: center;
+    background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%), url(img/new\ fondo2.jpg);
+    
+    background-repeat: no-repeat;
     background-size: cover;
-    height: 109vh;
+    background-position: center;
+    min-height: 100vh;
+    padding: 40px 20px;
 }
 
 .navbar{
@@ -277,18 +280,17 @@ body {
     position: relative;
     width: 400px;
     height: 500px;
-    background: #252826;
+    background: #505953;
     box-shadow: 0 0 50px #00ff88;
     border-radius: 20px;
     padding: 40px;
     overflow: hidden; /*esta linea de codigo se utiliza para esconder el segundo apartado dentro del recuadro*/
     transform: translateX(870px);
-    margin-top: -500px;
+    margin-top: -470px;
 }
 
-.wrapper:hover {
-    animation: animate 5s linear infinite;
-}
+
+
 
 @keyframes animate {
     100% {
@@ -327,7 +329,7 @@ h2 {
 
 .input-group{
     position: relative;
-    margin: 30px 0;
+    margin: 25px 0;
     border-bottom: 2px solid #fff;
 }
 
@@ -435,7 +437,7 @@ button {
 }
 
 .singUp-link p a {
-    color: #0059ff;
+    color: #0088ff;
     text-decoration: none;
     font-weight: 500;
 }
@@ -444,9 +446,9 @@ button {
     text-decoration: underline;
 }
 
-
-
-
+.terminos-link {
+    color: #0088ff;
+}
 
 /* desde aqui inicia el media query */
 @media (max-width: 1250px) {
@@ -454,32 +456,7 @@ button {
         width: 100%;
         padding: 20px;
     }
-    @media (max-width: 1024px) {
-        .main {
-            background-attachment: scroll; /* Mejor rendimiento en tablet */
-            background-size: contain; /* Opcional: muestra toda la imagen */
-        }
-    }
     
-    @media (max-width: 768px) {
-        .main {
-            height: auto;
-            padding-bottom: 50%; /* Mantiene proporción para móviles */
-            background-size: cover;
-            background-position: top center; /* Ajusta según necesidad */
-        }
-    }
-    
-    @media (max-width: 480px) {
-        .main {
-            padding-bottom: 70%; /* Más altura en móviles pequeños */
-            background: linear-gradient(to top, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.7) 50%), 
-                        url(img/igualdad\ de\ genero.jpg);
-            background-size: cover;
-            background-position: 30% center; /* Ajuste fino para móviles */
-        }
-    }
-
     .navbar, .content {
         width: 100%;
         max-width: 100%;
@@ -490,7 +467,7 @@ button {
         right: auto;
         top: auto;
         transform: none;
-        margin: 30px auto;
+        margin: 100px auto;
     }
     
     .icon img {
@@ -505,48 +482,42 @@ button {
     }
 }
 
+@media (max-width: 1024px) {
+    .main {
+      background-attachment: scroll;
+      background-size: cover; /* No usar contain si quieres que cubra toda la pantalla */
+      background-position: center;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .main {
+        background-attachment: scroll; /* para evitar bugs en móviles */
+        background-size: cover;
+        background-position: center;
+        min-height: 100vh;
+        padding-bottom: 20px;
+    }
+  }
+  
+
+
 /* Ajustes para móviles muy pequeños */
 @media (max-width: 480px) {
+    .main {
+      padding-bottom: 70%;
+      background: linear-gradient(to top, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.7) 50%),
+                  url("img/new fondo2.jpg");
+      background-size: cover;
+      background-position: center;
+    }
+  
     .wrapper {
-        width: 95%;
-        padding: 20px;
+      width: 95%;
+      padding: 20px;
     }
-    
+  
     .content h1 {
-        font-size: 1.8rem;
+      font-size: 1.8rem;
     }
-}
-
-.error {
-    color: #ff0000;
-    margin-bottom: 10px;
-    padding: 10px;
-    background: #ffebeb;
-    border: 1px solid #ff0000;
-    border-radius: 5px;
-}
-.error {
-    color: #dc3545;
-    background-color: #f8d7da;
-    border: 1px solid #f5c6cb;
-    padding: 10px;
-    margin-bottom: 15px;
-    border-radius: 4px;
-}
-
-.success {
-    color: #155724;
-    background-color: #d4edda;
-    border: 1px solid #c3e6cb;
-    padding: 10px;
-    margin-bottom: 15px;
-    border-radius: 4px;
-}
-    .valid {
-        color: green;
-        font-weight: bold;
-    }
-
-    .invalid {
-        color: gray;
-    }
+  }

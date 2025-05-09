@@ -358,208 +358,38 @@ article img{
 	font-size: 1.6rem;
 }
 
-/* ********************************** */
-/*       MEDIA QUERIES -- 768px       */
-/* ********************************** */
-@media (max-width: 768px) {
-	html {
-		font-size: 55%;
-	}
+@media screen and (max-width: 1220px){
 
-	.hero {
-		padding: 2rem;
-	}
-
-	.customer-support {
-		display: none;
-	}
-
-	.content-shopping-cart {
-		display: none;
-	}
-
-	.navbar {
-		padding: 1rem 2rem;
-	}
-
-	.navbar .fa-bars {
-		display: block;
-		color: #fff;
-		font-size: 3rem;
-	}
-
-	.menu {
-		display: none;
-	}
-
-	.content-banner {
-		max-width: 50rem;
-		margin: 0 auto;
-		padding: 25rem 0;
-	}
-
-	.container-features {
-		grid-template-columns: repeat(2, 1fr);
-		padding: 3rem 2rem;
-	}
-
-	.card-feature {
-		padding: 2rem;
-	}
-
-	.heading-1 {
-		font-size: 2.4rem;
-	}
-
-	.card-category {
-		height: 12rem;
-	}
-
-	.card-category p {
-		font-size: 2rem;
-		text-align: center;
-		line-height: 1;
-	}
-
-	.card-category span {
-		font-size: 1.4rem;
-	}
-
-	.container-options {
-		align-items: center;
-	}
-
-	.container-options span {
-		text-align: center;
-		padding: 1rem 2rem;
-	}
-
-	.container-products {
-		grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
-	}
-
-	.gallery {
-		grid-template-rows: repeat(2, 15rem);
-	}
-
-	.container-blogs {
-		overflow: hidden;
-		grid-template-columns: 1fr 1fr;
-
-		height: 52rem;
-	}
-
-	.menu-footer {
-		grid-template-columns: repeat(2, 1fr);
-	}
-
-	.copyright {
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		gap: 1.5rem;
-	}
+    .container-content{
+        max-width: 1000px;
+        padding: 0 20px;
+    }
 }
 
-/* ********************************** */
-/*       MEDIA QUERIES -- 468px       */
-/* ********************************** */
-@media (max-width: 468px) {
-	html {
-		font-size: 42.5%;
-	}
+@media screen and (max-width: 1220px){
 
-	.content-banner {
-		max-width: 50rem;
-		padding: 22rem 0;
-	}
+    .container-content{
+        width: 100%;
+        flex-direction: column;
+    }
 
-	.heading-1 {
-		font-size: 2.8rem;
-	}
+    article{
+        box-shadow: 0 0 0 0;
+    }
 
-	.card-feature {
-		flex-direction: column;
-		border-radius: 2rem;
-	}
+    .container-aside{
+        display: flex;
+        justify-content: center;
+    }
 
-	.feature-content {
-		align-items: center;
-	}
+    .container-aside aside{
+        max-width: 300px;
+        margin: 10px;
+    }
+}
 
-	.feature-content p {
-		font-size: 1.4rem;
-		text-align: center;
-	}
-
-	.feature-content span {
-		font-size: 1.6rem;
-		text-align: center;
-	}
-
-	.container-options span {
-		font-size: 1.8rem;
-		padding: 1rem 1.5rem;
-		font-weight: 500;
-	}
-
-	.container-products {
-		grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
-		gap: 1rem;
-	}
-
-	.container-img .discount {
-		font-size: 2rem;
-	}
-
-	.content-card-product h3 {
-		font-size: 2.2rem;
-	}
-
-	.gallery {
-		grid-template-rows: repeat(2, 20rem);
-	}
-
-	.blogs {
-		padding: 2rem;
-	}
-
-	.container-blogs {
-		grid-template-columns: 1fr;
-		height: 75rem;
-	}
-
-	.content-blog h3 {
-		font-size: 2.4rem;
-	}
-
-	.content-blog span {
-		font-size: 1.8rem;
-	}
-
-	.content-blog p {
-		font-size: 2.2rem;
-	}
-
-	.btn-read-more{
-		font-size: 1.8rem;
-	}
-
-	.contact-info ul,
-	.information ul,
-	.my-account ul{
-		display: none;
-	}
-
-	.contact-info {
-		align-items: center;
-	}
-
-	.menu-footer{
-		grid-template-columns: 1fr;
-	}
-
-	.content p{
-		font-size: 1.6rem;
-	}
+@media screen and (max-width: 800px){
+    .container-aside{
+        flex-wrap: wrap;  /*Esta parte sirve para que los articulos bajen uno sobre el otro y sea responsive*/
+    }
 }

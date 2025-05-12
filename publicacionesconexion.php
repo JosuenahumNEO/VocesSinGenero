@@ -74,7 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['titulo'])) {
             VALUES (?, ?, ?, ?, ?,?)");
         
         $stmt->bind_param(
-            'sssss',
+            'sssssi',
             $titulo,
             $descripcion,
             $nombresImagenes['imagen1'],

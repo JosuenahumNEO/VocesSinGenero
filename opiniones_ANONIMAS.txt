@@ -22,3 +22,7 @@ Comentario: hola, me gusto su  blog
 Fecha: 2025-04-22 14:32:06
 Comentario: hola
 
+--- OPINIÓN ANÓNIMA ---
+Fecha: 2025-05-12 07:32:04
+Comentario: hola
+

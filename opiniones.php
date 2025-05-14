@@ -4,29 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Opiniones</title>
+	<link rel="icon" href="images/img/logoblanco.png" type="image/svg+xml" />
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 20px;
-            background: url('Voces/img1.jpg') no-repeat center center fixed;
-            background-size: cover;
-            display: flex;
             justify-content: center;
-            align-items: center;
             height: 100vh;
+            background-image: url(images/Voces/equidad.jpeg);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            
+            &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.664);
+		    z-index: -1;
+            }
         }
         .container {
             max-width: 800px;
             width: 90%;
-            background: rgba(255, 255, 255, 0.7);
+            margin: 100px auto;
+            background: rgba(255, 255, 255, 0.2);
             padding: 40px;
             border-radius: 15px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px); /* Soporte Safari */
+            color: #000;
         }
         h1, h2 {
-            color: #333;
+            color: rgb(255, 255, 255) ;
         }
         .error {
             color: red;
@@ -45,9 +64,20 @@
             border-radius: 5px;
             resize: none;
             font-size: 16px;
+            background: rgba(255, 255, 255, 0.1); /* Fondo semitransparente */
+            color: white;                         /* Texto blanco para contraste */
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            outline: none;
         }
+
+        textarea::placeholder {
+        color: white;
+        opacity: 1; /* Asegura que no se vea gris claro */
+        }
+
         button {
-            background-color: #007acc;
+            background-color: #19bc70 ;
             color: white;
             padding: 10px 20px;
             border: none;
@@ -57,7 +87,7 @@
             margin-top: 10px;
         }
         button:hover {
-            background-color: #005fa3;
+            background-color: #19bc70;
         }
     </style>
 </head>

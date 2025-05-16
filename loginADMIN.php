@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $query = "SELECT * FROM admin WHERE nombre = '$usuario' AND contraseña = '$contrasena'";
     $resultado = mysqli_query($conexion, $query);
 
-    if (mysqli_num_rows($resultado) == 1) { 
+    if (mysqli_num_rows($resultado) == 1) {
         // Credenciales válidas
         $admin = mysqli_fetch_assoc($resultado);
         

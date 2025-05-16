@@ -119,11 +119,27 @@ if (isset($_SESSION['error'])) {
 
                             <label for="imagen_cuerpo2">Segunda imagen de cuerpo:</label>
                             <input type="file" id="imagen_cuerpo2" name="imagen_cuerpo2" accept="image/*">
+
+                            <br><br><br>
+                            <b>Publicado por: </b>
                         </div>
                         <button type="submit" class="submit-btn">Publicar</button>
                     </form>
                 <?php endif; ?>
             </section>
+
+            <section id="usuarios" class="content-section">
+                <?php include('listar_publicaciones.php'); ?>
+            </section>
+
+
+            
+            <section id="estadisticas" class="content-section"><h1>hola 2</h1></section>
+
+
+
+
+
 
             <!-- Aquí puedes añadir las otras secciones como usuarios y estadísticas -->
         </main>

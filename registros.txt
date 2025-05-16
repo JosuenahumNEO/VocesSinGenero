@@ -105,17 +105,17 @@ Título: >=Brainrot=\"tralalero\"
 Usuario: josue
 
 ---NUEVO REGISTRO---
-Fecha: 2025-05-09 14:48:53
-Nombre: sdfsfdf
-Correo: sdfsdfsdfsdf@gmail.com
+Fecha: 2025-05-06 11:32:38
+Nombre: lolo
+Correo: lolo@gmail.com
 
----NUEVA PUBLICACIÓN---
-Fecha: 2025-05-09 15:00:19
-Título: sdfsfsdf
-Usuario: tona
+---NUEVO REGISTRO---
+Fecha: 2025-05-06 12:22:07
+Nombre: lala
+Correo: 
 
----NUEVA PUBLICACIÓN---
-Fecha: 2025-05-09 15:01:12
-Título: caca
-Usuario: tona
+---NUEVO REGISTRO---
+Fecha: 2025-05-06 12:23:43
+Nombre: lele
+Correo: 
 

@@ -190,3 +190,39 @@ body {
   font-size: 24px;
   cursor: pointer;
 }
+/* Estilo para el título de la sección */
+.section-title {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+/* Estilos para los botones de acciones */
+.edit-btn,
+.delete-btn {
+    display: inline-block;
+    padding: 8px 15px;
+    margin-right: 8px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: background 0.3s ease;
+}
+
+.edit-btn {
+    background-color: #4392cf;
+    color: white;
+}
+
+.edit-btn:hover {
+    background-color: #74b9ff;
+}
+
+.delete-btn {
+    background-color: #d63031;
+    color: white;
+}
+
+.delete-btn:hover {
+    background-color: #ff7675;
+}

@@ -79,7 +79,7 @@ if (!isset($_SESSION['user_id'])) {
 					<li><a href="http://localhost:3000/admin.php">Admin</a></li>
 
 					<!-- con esto se recupera la publicacion de la base de dattos con el id numero 2x-->
-					<li><a href="plantilla.php?id=6">Recuperacion</a></li>
+					<li><a href="plantilla.php?id=2">Recuperacion</a></li>
 
 				</ul>
 

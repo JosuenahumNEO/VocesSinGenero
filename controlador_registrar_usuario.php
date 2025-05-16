@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['registro'])) {
             $_SESSION['error_registro'] = "La contraseña debe tener al menos 8 caracteres";
         } else {
             // Verificar usuario existente
-            $stmt_check = $conexion->prepare("SELECT ID_USUARIO FROM usuarios WHERE usuario = ? OR correo = ?");
+            $stmt_check = $conexion->prepare("SELECT id FROM usuarios WHERE usuario = ? OR correo = ?");
             $stmt_check->bind_param("ss", $nombre, $correo);
             $stmt_check->execute();
             $stmt_check->store_result();

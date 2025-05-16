@@ -91,6 +91,7 @@ $stmt->close();
         </div>
 
     </div>
+    <button><a href="index.php">Volver</a></button>
 
     <!-- Incluir el footer de tu index.php -->
     <?php include('footer.php'); ?>

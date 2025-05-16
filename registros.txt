@@ -104,3 +104,18 @@ Fecha: 2025-04-28 08:38:19
 Título: >=Brainrot=\"tralalero\"
 Usuario: josue
 
+---NUEVO REGISTRO---
+Fecha: 2025-05-06 11:32:38
+Nombre: lolo
+Correo: lolo@gmail.com
+
+---NUEVO REGISTRO---
+Fecha: 2025-05-06 12:22:07
+Nombre: lala
+Correo: 
+
+---NUEVO REGISTRO---
+Fecha: 2025-05-06 12:23:43
+Nombre: lele
+Correo: 
+

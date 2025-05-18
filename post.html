@@ -1,75 +1,66 @@
 <!DOCTYPE html>
 <html lang="es">
-	<head>
-		<meta charset="UTF-8" />
-		<meta
-			name="viewport"
-			content="width=device-width, initial-scale=1.0"
-		/>
-		<title>VocesSinGénero | Inicio</title>
-		<link rel="icon" href="images/img/logoblanco.png" type="image/svg+xml" />
-		
-		<!-- biblioteca de íconos -->
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-			integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-			crossorigin="anonymous"
-			referrerpolicy="no-referrer"
-		/>
-		<link rel="stylesheet" href="css/global.css" />
-		<link rel="stylesheet" href="css/header.css" />
-		
-		<!-- Estilo individual de la página -->
-		<link rel="stylesheet" href="css/home.css" />
-		<link rel="stylesheet" href="css/footer.css" />
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>VocesSinGénero | Inicio</title>
+	<link rel="icon" href="images/img/logoblanco.png" type="image/svg+xml" />
 
-        </head>
-        
-        <body>
-            <header>
-                <div class="container header-expand">
-                    <div class="container-logo">
-                        <img src="images/img/logoblanco.png" alt="Logo" />
-                        <span>Voces Sin Género</span>
-                    </div>
-            
-                    <nav>
-                        <ul>
-                            <li><a href="index.html">Inicio</a></li>
-                            <li><a href="nosotros.html">Acerca</a></li>
-                            <li><a href="http://localhost:3000/opiniones.php">Opiniones</a></li>
-                            <li><a href="post.html">Artículos</a></li>
-                        </ul>
-                    </nav>
-            
-                    <!-- Buscador Responsive -->
-                    <div class="search-wrapper">
-                        <form action="http://localhost:3000/buscar.php" method="GET" class="search-form">
-                            <input type="text" name="q" placeholder="Buscar..." />
-                            <button type="submit">
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                            </button>
-                        </form>
-                    </div>
-            
-                    <button class="btn-toggle">
-                        <i class="fa-solid fa-bars active"></i>
-                        <i class="fa-solid fa-xmark"></i>
-                    </button>
-            
-                    <div class="menu-responsive">
-                        <ul>
-                            <li><a href="principal.html">Inicio</a></li>
-                            <li><a href="nosotros.html">Acerca</a></li>
-                            <li><a href="http://localhost:3000/opiniones.php">Opiniones</a></li>
-                            <li><a href="post.html">Artículos</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </header>
+	<!-- biblioteca de íconos -->
+	<link
+		rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+		integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+		crossorigin="anonymous"
+		referrerpolicy="no-referrer"
+	/>
+	<link rel="stylesheet" href="css/global.css" />
+	<link rel="stylesheet" href="css/header.css" />
+	<link rel="stylesheet" href="css/home.css" />
+	<link rel="stylesheet" href="css/footer.css" />
+</head>
 
-            <!-- Sección de portada -->
+<body>
+	<header>
+		<div class="container header-expand">
+			<div class="container-logo">
+				<img src="images/img/logoblanco.png" alt="Logo" />
+				<span>Voces Sin Género</span>
+			</div>
+
+			<nav>
+				<ul>
+					<li><a href="index.html">Inicio</a></li>
+					<li><a href="nosotros.html">Acerca</a></li>
+					<li><a href="http://localhost:3000/opiniones.php">Opiniones</a></li>
+					<li><a href="post.html">Artículos</a></li>
+				</ul>
+			</nav>
+
+			<div class="user-menu-container">
+				<button class="profile-btn" onclick="toggleMenu()">
+					<img src="images/usuario.png" alt="Perfil" class="avatar-icon" />
+				</button>
+				<div id="user-menu" class="user-menu hidden"></div>
+			</div>
+
+			<button class="btn-toggle">
+				<i class="fa-solid fa-bars active"></i>
+				<i class="fa-solid fa-xmark"></i>
+			</button>
+
+			<div class="menu-responsive">
+				<ul>
+					<li><a href="index.html">Inicio</a></li>
+					<li><a href="nosotros.html">Acerca</a></li>
+					<li><a href="http://localhost:3000/opiniones.php">Opiniones</a></li>
+					<li><a href="post.html">Artículos</a></li>
+				</ul>
+			</div>
+		</div>
+	</header>
+    
+    <!-- Sección de portada -->
     <div class="container-all" id="move-content">
 
 

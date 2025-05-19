@@ -20,59 +20,45 @@
 	<link rel="stylesheet" href="css/footer.css" />
 </head>
 
-        <body>
-            <header>
-                <div class="container header-expand">
-                    <div class="container-logo">
-                        <img src="images/img/logoblanco.png" alt="Logo" />
-                        <span>Voces Sin Género</span>
-                    </div>
-    
-                    <nav>
-                        <ul>
-                            <li>
-                                <a href="principal.html">Inicio</a>
-                            </li>
-                            <li>
-                                <a href="nosotros.html">Acerca</a>
-                            </li>
-                            <li>
-                                <a href="http://localhost:3000/opiniones.php">Opiniones</a>
-                            </li>
-                            <li>
-                                <a href="post.html">Artículos</a>
-                            </li>
-                        </ul>
-                    </nav>
-    
-                    <a href="#" class="btn btn-primary"
-                        >Inicia sesión
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-    
-                    <button class="btn-toggle">
-                        <i class="fa-solid fa-bars active"></i>
-                        <i class="fa-solid fa-xmark"></i>
-                    </button>
-    
-                    <div class="menu-responsive">
-                        <ul>
-                            <li>
-                                <a href="index.html">Inicio</a>
-                            </li>
-                            <li>
-                                <a href="nosotros.html">Acerca</a>
-                            </li>
-                            <li>
-                                <a href="http://localhost:3000/opiniones.php">Opiniones</a>
-                            </li>
-                            <li>
-                                <a href="post.html">Artículos</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </header>
+<body>
+	<header>
+		<div class="container header-expand">
+			<div class="container-logo">
+				<img src="images/img/logoblanco.png" alt="Logo" />
+				<span>Voces Sin Género</span>
+			</div>
+
+			<nav>
+				<ul>
+					<li><a href="index.html">Inicio</a></li>
+					<li><a href="nosotros.html">Acerca</a></li>
+					<li><a href="http://localhost:3000/opiniones.php">Opiniones</a></li>
+					<li><a href="post.html">Artículos</a></li>
+				</ul>
+			</nav>
+
+			<div class="user-menu-container">
+				<button class="profile-btn" onclick="toggleMenu()">
+					<img src="images/usuario.png" alt="Perfil" class="avatar-icon" />
+				</button>
+				<div id="user-menu" class="user-menu hidden"></div>
+			</div>
+
+			<button class="btn-toggle">
+				<i class="fa-solid fa-bars active"></i>
+				<i class="fa-solid fa-xmark"></i>
+			</button>
+
+			<div class="menu-responsive">
+				<ul>
+					<li><a href="index.html">Inicio</a></li>
+					<li><a href="nosotros.html">Acerca</a></li>
+					<li><a href="http://localhost:3000/opiniones.php">Opiniones</a></li>
+					<li><a href="post.html">Artículos</a></li>
+				</ul>
+			</div>
+		</div>
+	</header>
 
 	<!-- SECTION BANNER HERO -->
 	<section class="hero-banner">

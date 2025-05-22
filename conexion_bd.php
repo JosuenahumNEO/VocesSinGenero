@@ -1,6 +1,6 @@
 <?php
 // modelo/conexion_bd.php
-
+//localhost | railway.app |
 $host = 'localhost'; // El servidor de la base de datos
 $dbname = 'vsg';     // El nombre de la base de datos
 $user = 'root';      // El usuario de la base de datos

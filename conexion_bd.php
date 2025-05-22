@@ -2,10 +2,10 @@
 // modelo/conexion_bd.php
 //localhost | railway.app |
 $host = 'localhost'; // El servidor de la base de datos
-$dbname = 'vsg';     // El nombre de la base de datos
+$dbname = 'vsg';     // railway 
 $user = 'root';      // El usuario de la base de datos
-$password = '';      // La contraseña de la base de datos
-$port = 3306;        // El puerto de la base de datos
+$password = '';      //TxTfAOzAsazNLEuCTWgdrFLmiYbYxOmy
+$port = 3306;        // 3306
 
 // Crear conexión
 $conexion = new mysqli($host, $user, $password, $dbname, $port);

@@ -55,7 +55,6 @@ input {
 
 .background-dark-2 {
 	background-color: var(--color-secondary);
-	width: 100%;
 }
 
 .container-logo {

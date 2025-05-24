@@ -27,38 +27,46 @@
   <div class="container mt-5">
     <div class="card mx-auto p-4 shadow" style="max-width: 500px;">
       <h3 class="text-center mb-4">Crear una cuenta</h3>
-      <form action="registro.php" method="POST" enctype="multipart/form-data" onsubmit="return validarFormulario()">
-        <div class="mb-3">
-          <label for="nombre_usuario" class="form-label">Nombre de usuario</label>
-          <input type="text" class="form-control" id="nombre_usuario" name="nombre_usuario" required />
-        </div>
-        <div class="mb-3">
-          <label for="correo" class="form-label">Correo electrónico</label>
-          <input type="email" class="form-control" id="correo" name="correo" required />
-        </div>
-        <div class="mb-3">
-          <label for="contraseña" class="form-label">Contraseña</label>
-          <div class="input-group">
-            <input type="password" class="form-control" id="contraseña" name="contraseña" required />
-            <span class="input-group-text" onclick="togglePassword()">
-              <i id="eyeIcon" class="fa-solid fa-eye-slash"></i>
-            </span>
-          </div>
-        </div>
-        <div class="password-check mb-3" id="passwordCheck">
-          <span id="length" class="invalid">• Mínimo 8 caracteres</span><br />
-          <span id="uppercase" class="invalid">• Una letra mayúscula</span><br />
-          <span id="number" class="invalid">• Un número</span><br />
-          <span id="special" class="invalid">• Un carácter especial</span>
-        </div>
-        <div class="mb-3">
-          <label for="foto_perfil" class="form-label">Foto de perfil (opcional)</label>
-          <input type="file" class="form-control" id="foto_perfil" name="foto_perfil" accept="image/*" />
-        </div>
-        <button type="submit" class="btn btn-primary w-100">Registrarse</button>
-      </form>
+      <form action="registro.php" method="POST" enctype="multipart/form-data">
+    <h1>Registrate</h1>
+
+    <div class="input-box1">
+        <input type="text" name="nombre_usuario" placeholder="Usuario" required>
+        <i class="fa-solid fa-user"></i>
     </div>
-  </div>
+
+    <div class="input-box1">
+        <input type="email" name="correo" placeholder="Correo electrónico" required>
+        <i class="fa-solid fa-envelope"></i>
+    </div>
+
+    <div class="input-box1">
+      <input type="password" id="loginPassword" placeholder="Contraseña" required>
+      <i class="fa-solid fa-eye" id="toggleLoginPassword" onclick="togglePasswordVisibility('loginPassword', 'toggleLoginPassword')"></i>
+    </div>
+
+
+    <!-- Imagen opcional -->
+    <div class="input-box1">
+        <label style="font-size: 14px; color: #555;">Foto de perfil (opcional):</label>
+        <input type="file" name="foto_perfil" accept="image/*">
+    </div>
+
+    <!-- Reglas de validación visual -->
+    <ul id="password-rules" style="list-style: none; padding-left: 0;">
+        <li id="rule-length" class="invalid">✔ Mínimo de 8 caracteres</li>
+        <li id="rule-uppercase" class="invalid">✔ Mayúsculas y minúsculas</li>
+        <li id="rule-number" class="invalid">✔ Un número</li>
+        <li id="rule-special" class="invalid">✔ Un carácter especial</li>
+    </ul>
+
+    <p class="terminos_condiciones">
+        Al crear cuenta aceptas nuestros <a href="terminos_condiciones.html">Términos y condiciones</a>
+    </p>
+
+    <button type="submit" class="btn">Registrate</button>
+</form>
+
 
   <script>
     function togglePassword() {

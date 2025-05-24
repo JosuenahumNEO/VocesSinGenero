@@ -7,90 +7,104 @@ unset($_SESSION['error'], $_SESSION['correo_guardado'], $_SESSION['login_intenta
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <title>Iniciar Sesión</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
-  <link href="articulos.css" rel="stylesheet" />
-  <style>
-    .input-group-text {
-      background: white;
-      cursor: pointer;
-    }
-    .password-check {
-      font-size: 0.9rem;
-      color: #888;
-    }
-    .password-check span.valid {
-      color: green;
-    }
-    .password-check span.invalid {
-      color: red;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/13ad7a6a05.js" crossorigin="anonymous"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="css/login.css">
 </head>
-<body class="bg-light">
-  <div class="container mt-5">
-    <div class="card mx-auto p-4 shadow" style="max-width: 500px;">
-      <h3 class="text-center mb-4">Iniciar Sesión</h3>
-      <form action="procesar_login.php" method="POST">
-        <div class="mb-3">
-          <label for="correo" class="form-label">Correo electrónico</label>
-          <input type="email" class="form-control" id="correo" name="correo"
-                 value="<?php echo htmlspecialchars($correo_guardado); ?>" required />
+
+<body>
+    <div class="container">
+        <div class="form-box login">
+          <form action="procesar_login.php" method="POST">
+                <h1>Login</h1>
+                <div class="input-box">
+                    <input type="email" name="correo" placeholder="Correo" required>
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <div class="input-box">
+                  <input type="password" id="loginPassword" name="contraseña" placeholder="Contraseña" required>
+                  <i class="fa-solid fa-eye" id="toggleLoginPassword" onclick="togglePasswordVisibility('loginPassword', 'toggleLoginPassword')"></i>
+                </div>
+
+
+                <div class="forgot-link">
+                    <a href="#">Olvidaste tu contraseña?</a>
+                </div>
+                <button type="submit" class="btn">Login</button>
+                <p>Siguenos en nuestras redes sociales</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-solid fa-x"></i></a>
+                </div>
+            </form>
         </div>
 
-        <div class="mb-3">
-          <label for="contraseña" class="form-label">Contraseña</label>
-          <div class="input-group">
-            <input type="password" class="form-control" id="contraseña" name="contraseña" required />
-            <span class="input-group-text" onclick="togglePassword()">
-              <i id="eyeIcon" class="fa-solid fa-eye-slash"></i>
-            </span>
-          </div>
+        <div class="form-box register">
+            <form action="registro.php" method="POST" enctype="multipart/form-data">
+                <h1>Registrate</h1>
+                <div class="input-box1">
+                  <label for="foto_perfil" style="display: block; text-align: left; font-weight: 500;">Foto de perfil</label>
+                  <input type="file" name="foto_perfil" id="foto_perfil" accept="image/*" required>
+                </div>
+
+                <div class="input-box1">
+                    <input type="text" name="nombre_usuario" placeholder="Usuario" required>
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <div class="input-box1">
+                    <input type="email" name="correo" placeholder="Correo" required>
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+                <div class="input-box">
+                  <input type="password" id="loginPassword" name="contraseña" placeholder="Contraseña" required>
+                  <i class="fa-solid fa-eye" id="toggleLoginPassword" onclick="togglePasswordVisibility('loginPassword', 'toggleLoginPassword')"></i>
+                </div>
+
+
+                <div class="input-box">
+                  <input type="password" id="loginPassword" name="contraseña" placeholder="Contraseña" required>
+                  <i class="fa-solid fa-eye" id="toggleLoginPassword" onclick="togglePasswordVisibility('loginPassword', 'toggleLoginPassword')"></i>
+                </div>
+
+
+
+                <!--<button type="submit" class="btn">Register</button>-->
+                        
+                        <ul id="password-rules" style="list-style: none; padding-left: 0;">
+                            <li id="rule-length" class="invalid">✔ Mínimo de 8 caracteres</li>
+                            <li id="rule-uppercase" class="invalid">✔ Mayúsculas y minúsculas</li>
+                            <li id="rule-number" class="invalid">✔ Un número</li>
+                            <li id="rule-special" class="invalid">✔ Un carácter especial</li>
+                        </ul>
+                <p class="terminos_condiciones">Al crear cuenta aceptas nuestros <a href="terminos_condiciones.html">Términos y condiciones</a></p>
+
+                <button type="submit" class="btn">Registrate</button>
+                <!--<div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-solid fa-x"></i></a>
+                </div>-->
+            </form>
         </div>
 
-        <div class="password-check mb-2" id="passwordCheck">
-          <span id="length" class="invalid">• Mínimo 8 caracteres</span><br>
-          <span id="uppercase" class="invalid">• Una letra mayúscula</span><br>
-          <span id="number" class="invalid">• Un número</span><br>
-          <span id="special" class="invalid">• Un carácter especial</span>
+        <div class="toggle-box">
+            <div class="toggle-panel toggle-left">
+                <h1>Hola, Bienvenido a Voces sin Genero!</h1>
+                <p>No tienes cuenta?</p>
+                <button class="btn register-btn">Registrate</button>
+            </div>
+            <div class="toggle-panel toggle-right">
+                <h1>Bienvenido de nuevo!</h1>
+                <p>Ya tienes cuenta?</p>
+                <button class="btn login-btn">Login</button>
+            </div>
         </div>
-
-        <?php if ($error): ?>
-          <div class="text-danger mb-3"><?php echo $error; ?></div>
-        <?php endif; ?>
-
-        <button type="submit" class="btn btn-success w-100">Ingresar</button>
-      </form>
-      <div class="text-center mt-3">
-        <a href="registro.html">¿No tienes cuenta? Regístrate</a>
-      </div>
     </div>
-  </div>
-
-  <script>
-    function togglePassword() {
-      const input = document.getElementById('contraseña');
-      const icon = document.getElementById('eyeIcon');
-      if (input.type === 'password') {
-        input.type = 'text';
-        icon.classList.remove('fa-eye-slash');
-        icon.classList.add('fa-eye');
-      } else {
-        input.type = 'password';
-        icon.classList.remove('fa-eye');
-        icon.classList.add('fa-eye-slash');
-      }
-    }
-
-    document.getElementById('contraseña').addEventListener('input', function () {
-      const val = this.value;
-      document.getElementById('length').className = val.length >= 8 ? 'valid' : 'invalid';
-      document.getElementById('uppercase').className = /[A-Z]/.test(val) ? 'valid' : 'invalid';
-      document.getElementById('number').className = /\d/.test(val) ? 'valid' : 'invalid';
-      document.getElementById('special').className = /[!@#$%^&*(),.?":{}|<>]/.test(val) ? 'valid' : 'invalid';
-    });
-  </script>
+    
+    <script src="js/login.js"></script>
 </body>
 </html>

@@ -1,4 +1,10 @@
 <?php
+session_start();
+if (!isset($_SESSION['usuario_id'])) {
+    header("Location: login.php");
+    exit;
+}
+
 date_default_timezone_set('America/Mexico_City');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -17,14 +23,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Conexión a la base de datos
-    $conexion = mysqli_connect("localhost", "root", "", "vsg");
+    $conexion = mysqli_connect("localhost", "root", "", "voces_db");
     if (!$conexion) {
         die("Error de conexión: " . mysqli_connect_error());
     }
     
     // Insertar en la base de datos
     $stmt = $conexion->prepare("INSERT INTO opiniones (comentario) VALUES (?)");
+
+    if ($stmt === false) {
+        die("Error en prepare: " . $conexion->error);
+    }
+
     $stmt->bind_param("s", $comentario);
+
     
     if ($stmt->execute()) {
         // Registrar en archivo

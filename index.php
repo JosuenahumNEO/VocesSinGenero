@@ -1,8 +1,10 @@
 <?php
+session_start();
 require_once 'conexion.php';
 $conn = conectarDB();
 $resultado = $conn->query("SELECT id, titulo, portada FROM posts ORDER BY fecha DESC LIMIT 3");
 ?>
+
 
 <!DOCTYPE html>
 <html lang="es">
@@ -27,6 +29,16 @@ $resultado = $conn->query("SELECT id, titulo, portada FROM posts ORDER BY fecha 
 </head>
 
 <body>
+
+<?php if (isset($_SESSION['local_user'])): ?>
+<script>
+  localStorage.setItem('user', JSON.stringify(<?= json_encode($_SESSION['local_user']) ?>));
+</script>
+<?php unset($_SESSION['local_user']); ?>
+<?php endif; ?>
+
+
+
 	<header>
 		<div class="container header-expand">
 			<div class="container-logo">

@@ -10,7 +10,7 @@ date_default_timezone_set('America/Mexico_City');
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verificar si se envió un comentario
     if(empty($_POST["comentario"])) {
-        header("Location: opiniones.php?error=" . urlencode("El comentario no puede estar vacío"));
+        header("Location: opiniones_panel.php?error=" . urlencode("El comentario no puede estar vacío"));
         exit;
     }
 
@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     // Validar longitud del comentario
     if(strlen($comentario) > 500) {
-        header("Location: opiniones.php?error=" . urlencode("El comentario no puede exceder los 500 caracteres"));
+        header("Location: opiniones_panel.php?error=" . urlencode("El comentario no puede exceder los 500 caracteres"));
         exit;
     }
 
@@ -44,9 +44,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $registro = "--- OPINIÓN ANÓNIMA ---\nFecha: $fechaHora\nComentario: $comentario\n\n";
         file_put_contents("opiniones_ANONIMAS.txt", $registro, FILE_APPEND);
         
-        header("Location: opiniones.php?success=true");
+        header("Location: opiniones_panel.php?success=true");
     } else {
-        header("Location: opiniones.php?error=" . urlencode("Error al guardar el comentario"));
+        header("Location: opiniones_panel.php?error=" . urlencode("Error al guardar el comentario"));
     }
 
     $stmt->close();

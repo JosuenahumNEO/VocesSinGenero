@@ -23,29 +23,13 @@ $result = $conn->query("SELECT id, titulo, fecha FROM posts ORDER BY fecha DESC"
 		crossorigin="anonymous"
 		referrerpolicy="no-referrer"
 	/>
-  <link rel="stylesheet" href="css/global.css">
-  <link rel="stylesheet" href="css/header.css">
-  <link rel="stylesheet" href="css/admin.css"> <!-- nuevo -->
-  <link rel="stylesheet" href="css/footer.css">
+  
 
   
 </head>
 <body>
 
-<header>
-  <div class="container header-expand">
-    <div class="container-logo">
-      <img src="images/img/logoblanco.png" alt="Logo">
-      <span>Voces Sin Género</span>
-    </div>
-    <nav>
-      <ul>
-        <li><a href="index.php">Inicio</a></li>
-        <li><a href="post.php">Artículos</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+	<?php  include 'header.php'; ?>
 
 <main class="admin-panel">
   <div class="admin-container">

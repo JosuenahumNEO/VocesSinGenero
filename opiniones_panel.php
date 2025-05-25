@@ -97,6 +97,7 @@ if (!isset($_SESSION['usuario_id'])) {
   </style>
 </head>
 <body>
+ 
   <div class="container">
     <h1>El equipo detrás de Voces sin Género quiere escucharte</h1>
     <h2>Cuéntanos en qué podemos mejorar</h2>

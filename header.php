@@ -25,7 +25,7 @@ if (!isset($_SESSION['user_id'])) {
                     <i class="fa-solid fa-headset"></i>
                     <div class="content-customer-support">
                         <span class="text">Soporte al cliente</span>
-                        <span class="number">123-456-7890</span>
+                        <span class="number">123-456-7890 XDDDD</span>
                     </div>
                 </div>
 

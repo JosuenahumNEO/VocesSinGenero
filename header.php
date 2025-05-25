@@ -43,7 +43,7 @@ if (!isset($_SESSION['user_id'])) {
                     </div>
                 </div>
             </div>
-        </div>
+        </div> 
         
         <div class="container-navbar">
             <nav class="navbar container">

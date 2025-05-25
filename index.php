@@ -38,7 +38,7 @@ $resultado = $conn->query("SELECT id, titulo, portada FROM posts ORDER BY fecha 
 				<ul>
 					<li><a href="index.php">Inicio</a></li>
 					<li><a href="nosotros.html">Acerca</a></li>
-					<li><a href="http://localhost:3000/opiniones.php">Opiniones</a></li>
+					<li><a href="opiniones.php">Opiniones</a></li>
 					<li><a href="post.php">Artículos</a></li>
 				</ul>
 			</nav>
@@ -59,7 +59,7 @@ $resultado = $conn->query("SELECT id, titulo, portada FROM posts ORDER BY fecha 
 				<ul>
 					<li><a href="index.php">Inicio</a></li>
 					<li><a href="nosotros.html">Acerca</a></li>
-					<li><a href="http://localhost:3000/opiniones.php">Opiniones</a></li>
+					<li><a href="opiniones.php">Opiniones</a></li>
 					<li><a href="post.php">Artículos</a></li>
 				</ul>
 			</div>

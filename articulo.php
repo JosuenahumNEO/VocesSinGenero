@@ -70,40 +70,8 @@ $articuloRelacionado = $relacionado->fetch_assoc();
 </head>
 
 <body>
-<header>
-  <div class="container header-expand">
-    <div class="container-logo">
-      <img src="images/img/logoblanco.png" alt="Logo" />
-      <span>Voces Sin Género</span>
-    </div>
-    <nav>
-      <ul>
-        <li><a href="index.php">Inicio</a></li>
-        <li><a href="nosotros.html">Acerca</a></li>
-        <li><a href="http://localhost/VocesSinGnero/opiniones_panel.php">Opiniones</a></li>
-        <li><a href="post.php">Artículos</a></li>
-      </ul>
-    </nav>
-    <div class="user-menu-container">
-      <button class="profile-btn" onclick="toggleMenu()">
-        <img src="images/usuario.png" alt="Perfil" class="avatar-icon" />
-      </button>
-      <div id="user-menu" class="user-menu hidden"></div>
-    </div>
-    <button class="btn-toggle">
-      <i class="fa-solid fa-bars active"></i>
-      <i class="fa-solid fa-xmark"></i>
-    </button>
-    <div class="menu-responsive">
-      <ul>
-        <li><a href="index.php">Inicio</a></li>
-        <li><a href="nosotros.html">Acerca</a></li>
-        <li><a href="http://localhost/VocesSinGnero/opiniones_panel.php">Opiniones</a></li>
-        <li><a href="post.php">Artículos</a></li>
-      </ul>
-    </div>
-  </div>
-</header>
+<?php  include 'header.php'; ?>
+
 
 <!-- PORTADA HERO -->
 <div class="article-container-cover" style="background-image: url('<?= htmlspecialchars($post['portada']) ?>')">

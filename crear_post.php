@@ -1,9 +1,14 @@
 <?php
+
 session_start();
+
 if (!isset($_SESSION['usuario_id']) || $_SESSION['rol'] !== 'admin') {
   echo "<script>alert('Acceso denegado. Solo para administradores'); window.location.href='index.php';</script>";
   exit;
 }
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -14,22 +19,31 @@ if (!isset($_SESSION['usuario_id']) || $_SESSION['rol'] !== 'admin') {
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <style>
     body {
-      background-color: #f4f4f4;
+      background-color:#0e110d;
     }
     .form-container {
       max-width: 780px;
       margin: 4rem auto;
       padding: 2.5rem;
-      background-color: #fff;
+      background-color:#ffffff1a;
+   
       border-radius: 10px;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 16px  #0e110d;
     }
     .form-label small {
       font-weight: normal;
     }
+
+    
   </style>
+   <link rel="stylesheet" href="css/global.css" />
+
+	
+    <link rel="stylesheet" href="css/admin.css"> 
+	<link rel="stylesheet" href="css/footer.css" />
 </head>
 <body>
+
   <div class="form-container">
     <h2 class="text-center mb-4">Crear nueva publicación</h2>
     <form action="guardar_post.php" method="POST" enctype="multipart/form-data">
@@ -77,6 +91,7 @@ if (!isset($_SESSION['usuario_id']) || $_SESSION['rol'] !== 'admin') {
 
       <!-- Botón de envío -->
       <button type="submit" class="btn btn-primary w-100">Publicar artículo</button>
+     
     </form>
   </div>
 

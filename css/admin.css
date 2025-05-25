@@ -1,228 +1,61 @@
-:root {
-    --primary-color: #278257;
-    --secondary-color: #3ec284;
-    --background: #f8f9fa;
-    --text-color: #2d3436;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
-}
-
-body {
-    background: var(--background);
+.admin-panel {
+  margin-top: 120px;
+  padding: 40px 20px;
+  background: #0e110d; 
 }
 
 .admin-container {
-    display: grid;
-    grid-template-columns: 250px 1fr;
-    min-height: 100vh;
+  max-width: 1000px;
+  margin: auto;
+  background: #1f2120;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-.sidebar {
-    background: white;
-    padding: 20px;
-    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+.admin-section {
+  margin-bottom: 40px;
 }
 
-.sidebar h1 {
-    color: var(--primary-color);
-    margin-bottom: 30px;
-    font-size: 1.5rem;
+.admin-section h2 {
+  font-size: 20px;
+  margin-bottom: 15px;
 }
 
-.nav-btn {
-    display: block;
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 10px;
-    border: none;
-    background: none;
-    text-align: left;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: all 0.3s;
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
 }
 
-.nav-btn:hover, .nav-btn.active {
-    background: var(--secondary-color);
-    color: white;
+.admin-table th, .admin-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
 }
 
-.main-content {
-    padding: 30px;
-    background: var(--background);
+.btn-edit,
+.btn-delete {
+  padding: 6px 12px;
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+  border-radius: 4px;
+  margin-right: 8px;
 }
 
-.content-section {
-    display: none;
+.btn-edit {
+  background-color: #198754;
 }
 
-.content-section.active {
-    display: block;
+.btn-delete {
+  background-color: #dc3545;
 }
 
-.post-form {
-    max-width: 100%;
-    background: white;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 500;
-}
-
-.form-group input[type="text"],
-.form-group textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-.form-group input[type="file"] {
-    padding: 5px;
-}
-
-.submit-btn {
-    background: var(--primary-color);
-    color: white;
-    padding: 12px 25px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.submit-btn:hover {
-    background: #3ec284;
-}
-
-.user-table-container {
-    overflow-x: auto;
-}
-
-.user-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.user-table th,
-.user-table td {
-    padding: 12px;
-    text-align: left;
-    border-bottom: 1px solid #eee;
-}
-
-.user-table th {
-    background: var(--primary-color);
-    color: white;
-}
-
-.role-badge {
-    display: inline-block;
-    padding: 5px 10px;
-    border-radius: 15px;
-    font-size: 0.8rem;
-}
-
-.super-admin { background: #e55039; color: white; }
-.editor { background: #4a69bd; color: white; }
-.moderador { background: #f6b93b; color: white; }
-.autor { background: #78e08f; color: white; }
-.lector { background: #82ccdd; color: white; }
-.invitado { background: #b8b8b8; color: white; }
-
-.user-info {
-    position: absolute;
-    bottom: 20px;
-    width: 200px;
-}
-
-.logout-btn {
-    background: #ff4757;
-    color: white;
-    border: none;
-    padding: 10px;
-    width: 100%;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-
-.modal {
-  display: none; /* Modal oculto por defecto */
-  position: fixed;
-  z-index: 999;
-  left: 0; top: 0;
-  width: 100%; height: 100%;
-  background-color: rgba(0,0,0,0.6);
-}
-
-.modal-content {
-  background-color: white;
-  margin: 10% auto;
-  padding: 20px;
-  border-radius: 12px;
-  width: 90%;
-  max-width: 400px;
-  position: relative;
-}
-
-.close {
-  position: absolute;
-  top: 10px; right: 15px;
-  font-size: 24px;
-  cursor: pointer;
-}
-/* Estilo para el título de la sección */
-.section-title {
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-    color: var(--primary-color);
-}
-
-/* Estilos para los botones de acciones */
-.edit-btn,
-.delete-btn {
-    display: inline-block;
-    padding: 8px 15px;
-    margin-right: 8px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: background 0.3s ease;
-}
-
-.edit-btn {
-    background-color: #4392cf;
-    color: white;
-}
-
-.edit-btn:hover {
-    background-color: #74b9ff;
-}
-
-.delete-btn {
-    background-color: #d63031;
-    color: white;
-}
-
-.delete-btn:hover {
-    background-color: #ff7675;
+.btn-primary {
+  display: inline-block;
+  padding: 10px 18px;
+  background-color: #0d6efd;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
 }

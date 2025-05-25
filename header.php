@@ -26,9 +26,9 @@
 			<nav>
 				<ul>
 					<li><a href="index.php">Inicio</a></li>
+					<li><a href="post.php">Artículos</a></li>
 					<li><a href="nosotros.php">Acerca</a></li>
 					<li><a href="opiniones_panel.php">Opiniones</a></li>
-					<li><a href="post.php">Artículos</a></li>
 				</ul>
 			</nav>
 
@@ -47,9 +47,10 @@
 			<div class="menu-responsive">
 				<ul>
 					<li><a href="index.php">Inicio</a></li>
+					<li><a href="post.php">Artículos</a></li>
 					<li><a href="nosotros.php">Acerca</a></li>
 					<li><a href="opiniones_panel.php">Opiniones</a></li>
-					<li><a href="post.php">Artículos</a></li>
+				</ul>
 				</ul>
 			</div>
 		</div>

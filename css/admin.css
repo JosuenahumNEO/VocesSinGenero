@@ -66,8 +66,8 @@
 
   .form-control, .form-control:focus, .form-select {
     background-color: #ddd !important;
-    color: #00000074 !important;
-    border: 1px solid #555 !important;
+    color: #000000 !important;
+    border: 1px solid #000000 !important;
   }
 
   .form-control::placeholder {

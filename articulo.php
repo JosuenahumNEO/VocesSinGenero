@@ -67,6 +67,7 @@ $articuloRelacionado = $relacionado->fetch_assoc();
   <link rel="stylesheet" href="css/articulos.css"/>
   <link rel="stylesheet" href="css/home.css" />
     <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/admin.css" />
 </head>
 
 <body>
@@ -164,7 +165,7 @@ $articuloRelacionado = $relacionado->fetch_assoc();
   <?php if (isset($_SESSION['usuario_id'])): ?>
     <form action="procesar_comentario.php" method="POST" class="form-comentario">
       <input type="hidden" name="post_id" value="<?= $id ?>">
-      <textarea name="contenido" required minlength="5" maxlength="500" placeholder="Escribe tu comentario aquí..."></textarea>
+      <textarea class="form-control" name="contenido" required minlength="5" maxlength="500" placeholder="Escribe tu comentario aquí..."></textarea>
       <button type="submit">Enviar Comentario</button>
     </form>
   <?php else: ?>

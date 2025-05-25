@@ -40,9 +40,9 @@ unset($_SESSION['error'], $_SESSION['correo_guardado'], $_SESSION['login_intenta
                 <button type="submit" class="btn">Login</button>
                 <p>Siguenos en nuestras redes sociales</p>
                 <div class="social-icons">
-                    <a href="https://www.facebook.com/share/1PXSEEAPko/"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/vocessingenero"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="mailto:vocessingenero@gmail.com"><i class="fa-solid fa-x"></i></a>
+                    <a href="https://www.facebook.com/share/1PXSEEAPko/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/vocessingenero" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" target="_blank"><i class="fa-solid fa-x"></i></a>
                 </div>
             </form>
         </div>

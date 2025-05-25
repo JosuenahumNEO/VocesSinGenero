@@ -244,31 +244,34 @@ document.addEventListener("DOMContentLoaded", function () {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
 
+      const user = JSON.parse(localStorage.getItem("user"));
+      if (!user || !user.id) {
+        alert("Debes iniciar sesión para comentar.");
+        return;
+      }
+
       const formData = new FormData(form);
       const xhr = new XMLHttpRequest();
       xhr.open("POST", "procesar_comentario.php", true);
 
       xhr.onload = function () {
-        const user = JSON.parse(localStorage.getItem("user"));
-        if (!user || !user.id) {
-        alert("Debes iniciar sesión para comentar.");
-        return;
-        }
+        if (xhr.status === 200) {
+          const contenido = formData.get("contenido")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;"); // Prevención básica de XSS
 
-        const nuevoComentario = document.createElement("div");
-        nuevoComentario.classList.add("comentario");
-        nuevoComentario.innerHTML = `
-        <img src="${user.photo || 'images/usuario.png'}" alt="Usuario" />
-        <div>
-            <div class="comentario-header">
-            <strong>${user.name || 'Usuario'}</strong>
-            <span class="text-muted" style="font-size: 0.8rem;">Ahora</span>
+          const nuevoComentario = document.createElement("div");
+          nuevoComentario.classList.add("comentario");
+          nuevoComentario.innerHTML = `
+            <img src="${user.photo || 'images/usuario.png'}" alt="Usuario" />
+            <div>
+              <div class="comentario-header">
+                <strong>${user.name || 'Usuario'}</strong>
+                <span class="text-muted" style="font-size: 0.8rem;">Ahora</span>
+              </div>
+              <p>${contenido}</p>
             </div>
-            <p>${formData.get("contenido")}</p>
-        </div>
-        `;
-        document.querySelector(".section-comentarios").insertBefore(nuevoComentario, form);
-        form.reset();
+          `;
 
           document.querySelector(".section-comentarios").insertBefore(nuevoComentario, form);
           form.reset();
@@ -277,11 +280,16 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       };
 
+      xhr.onerror = function () {
+        alert("No se pudo conectar con el servidor.");
+      };
+
       xhr.send(formData);
     });
   }
 });
 </script>
+
 
 <script>
 const textarea = document.querySelector("textarea[name='contenido']");

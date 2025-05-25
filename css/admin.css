@@ -10,7 +10,7 @@
   background: #1f2120;
   padding: 2rem;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px #0e110d;
 }
 
 .admin-section {
@@ -59,3 +59,38 @@
   text-decoration: none;
   border-radius: 5px;
 }
+
+
+
+
+
+  .form-control, .form-control:focus, .form-select {
+    background-color: #ddd !important;
+    color: #00000074 !important;
+    border: 1px solid #555 !important;
+  }
+
+  .form-control::placeholder {
+    color: #8f8e8e;
+  }
+
+  label {
+    color: #ddd;
+  }
+
+  input[type="file"] {
+    background-color: #198754 !important;
+    color: #ddd !important;
+  }
+
+  .tox-tinymce {
+    border: 1px solid #ddd !important;
+  }
+
+  .tox-editor-header,
+  .tox-toolbar,
+  .tox-statusbar,
+  .tox .tox-edit-area__iframe {
+    background-color: #ddd !important;
+    
+  }

@@ -16,6 +16,7 @@ body {
 
 
 .container{
+    height: 620px; /* Suficiente para nuevos campos y mensajes */
     position: relative;
     width: 850px;
     height: 550px;
@@ -55,46 +56,71 @@ body {
 
 .form-box.register {
     visibility: hidden;
+    overflow-y: auto;
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
+
+.form-box.register h1 {
+    margin-bottom: 20px;
+    font-size: 28px;
+    text-align: center;
+}
+
+.form-box.register form {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
 
 .container.active .form-box.register {
     visibility: visible;
 }
 
+
 form {
     width: 100%;
 }
+
+#passwordMismatchMsg {
+    min-height: 20px; /* Espacio reservado aunque no haya texto */
+    color: red;
+    font-size: 13px;
+    text-align: left;
+    margin-top: 5px;
+}
+
 
 .container h1 {
     font-size: 36px;
     margin: -1px 0;
 }
 
-.input-box {
-    position: relative;
-    margin: 20px 0;
-}
-
+.input-box,
 .input-box1 {
     position: relative;
-    margin: 8px 0;
+    margin: 5px 0;
 }
 
-.input-box input {
-    width: 100%;
-    padding: 13px 50px 13px 20px;
-    background: #eee;
-    border-radius: 8px;
-    border: none;
-    outline: none;
-    font-size: 16px;
-    color: #333;
-    font-weight: 500;
+.input-box i,
+.input-box1 i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20px;
+    font-size: 20px;
+    color: #888;
+    line-height: 1;
 }
 
+.input-box input,
 .input-box1 input {
     width: 100%;
-    padding: 10px 50px 13px 20px;
+    padding: 13px 50px 13px 20px; /* IGUAL en ambos */
     background: #eee;
     border-radius: 8px;
     border: none;
@@ -103,6 +129,26 @@ form {
     color: #333;
     font-weight: 500;
 }
+
+.input-box1 input[type="file"] {
+  padding-right: 50px; /* espacio para el ícono de cámara */
+}
+
+.input-box1 i.fa-camera {
+  pointer-events: none; /* que no interfiera con el clic */
+}
+
+
+/* Corrige la alineación del ojito en campos de contraseña */
+.contraseña-box i {
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+  right: 20px;
+  font-size: 18px;
+  color: #888;
+}
+
 
 .input-box input::placeholder {
     color: #888;
@@ -112,24 +158,6 @@ form {
 .input-box1 input::placeholder {
     color: #888;
     font-weight: 400;
-}
-/* este se utiliza para el acomodo de iconos*/
-.input-box i {
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 20px;
-    color: #888;
-}
-
-.input-box1 i {
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 20px;
-    color: #888;
 }
 
 #password-rules {
@@ -145,7 +173,7 @@ form {
 
 /*mover el link hacia arriba*/
 .forgot-link {
-    margin: -15px 0 15px;
+    margin: 10px 0 15px;
 }
 /*cambiar el color del link*/
 .forgot-link a{

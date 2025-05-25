@@ -36,32 +36,58 @@ function toggleSignUpPassword() {
     }
 }
 
+function togglePasswordVisibility(inputId, iconId) {
+    const input = document.getElementById(inputId);
+    const icon = document.getElementById(iconId);
+    if (input.type === "password") {
+        input.type = "text";
+        icon.classList.remove("fa-eye");
+        icon.classList.add("fa-eye-slash");
+    } else {
+        input.type = "password";
+        icon.classList.remove("fa-eye-slash");
+        icon.classList.add("fa-eye");
+    }
+}
 
 const registroPassword = document.getElementById("registroPassword");
 
-registroPassword.addEventListener("input", function () {
-  const value = registroPassword.value;
-
-  document.getElementById("rule-length").className = value.length >= 8 ? "valid" : "invalid";
-  document.getElementById("rule-uppercase").className = /[a-z]/.test(value) && /[A-Z]/.test(value) ? "valid" : "invalid";
-  document.getElementById("rule-number").className = /\d/.test(value) ? "valid" : "invalid";
-  document.getElementById("rule-special").className = /[^A-Za-z0-9]/.test(value) ? "valid" : "invalid";
-});
-
-
-function togglePasswordVisibility(inputId, iconId) {
-  const input = document.getElementById(inputId);
-  const icon = document.getElementById(iconId);
-
-  if (input.type === "password") {
-    input.type = "text";
-    icon.classList.remove("fa-eye");
-    icon.classList.add("fa-eye-slash");
-  } else {
-    input.type = "password";
-    icon.classList.remove("fa-eye-slash");
-    icon.classList.add("fa-eye");
-  }
+if (registroPassword) {
+    registroPassword.addEventListener("input", function () {
+        const value = registroPassword.value;
+        document.getElementById("rule-length").className = value.length >= 8 ? "valid" : "invalid";
+        document.getElementById("rule-uppercase").className = /[a-z]/.test(value) && /[A-Z]/.test(value) ? "valid" : "invalid";
+        document.getElementById("rule-number").className = /\d/.test(value) ? "valid" : "invalid";
+        document.getElementById("rule-special").className = /[^A-Za-z0-9]/.test(value) ? "valid" : "invalid";
+    });
 }
+
+const confirmarPassword = document.getElementById("confirmarPassword");
+
+if (registroPassword && confirmarPassword) {
+    confirmarPassword.addEventListener("input", function () {
+        const errorMsg = document.getElementById("passwordMismatchMsg");
+
+        if (!errorMsg && confirmarPassword.value !== "" && confirmarPassword.value !== registroPassword.value) {
+            const error = document.createElement("p");
+            error.id = "passwordMismatchMsg";
+            error.style.color = "red";
+            error.textContent = "Las contraseñas no coinciden.";
+            confirmarPassword.parentNode.insertBefore(error, confirmarPassword.nextSibling);
+        } else if (confirmarPassword.value === registroPassword.value) {
+            const msg = document.getElementById("passwordMismatchMsg");
+            if (msg) msg.remove();
+        }
+    });
+
+    registroPassword.addEventListener("input", function () {
+        const msg = document.getElementById("passwordMismatchMsg");
+        if (confirmarPassword.value === registroPassword.value && msg) {
+            msg.remove();
+        }
+    });
+}
+
+
 
 

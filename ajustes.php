@@ -60,13 +60,15 @@ if ($stmt->execute()) {
     $_SESSION['foto_perfil'] = $nueva_foto;
 
     echo "<script>
-        localStorage.setItem('user', JSON.stringify({
-            name: '" . addslashes($nuevo_nombre) . "',
-            photo: '" . addslashes($nueva_foto) . "'
-        }));
-        alert('¡Perfil actualizado correctamente!');
-        window.location.href = 'index.php';
+    localStorage.setItem('user', JSON.stringify({
+        name: '" . addslashes($nuevo_nombre) . "',
+        photo: '" . addslashes($nueva_foto) . "',
+        rol: '" . addslashes($_SESSION['rol']) . "'
+    }));
+    alert('¡Perfil actualizado correctamente!');
+    window.location.href = 'index.php';
     </script>";
+
 } else {
     echo "Error al actualizar: " . $stmt->error;
 }

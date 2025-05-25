@@ -1,12 +1,31 @@
 <?php
 session_start();
-require_once 'conexion.php'; // Archivo para conectar a la base de datos
+require_once 'conexion.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nombre_usuario = trim($_POST['nombre_usuario']);
     $correo = trim($_POST['correo']);
-    $contraseña = password_hash($_POST['contraseña'], PASSWORD_DEFAULT);
-    $foto_perfil = 'images/usuario.png'; // Imagen por defecto
+    $contraseña = $_POST['contraseña'];
+    $confirmar_contraseña = $_POST['confirmar_contraseña'];
+
+    if ($contraseña !== $confirmar_contraseña) {
+        echo "<script>alert('Las contraseñas no coinciden.'); window.history.back();</script>";
+        exit;
+    }
+
+    if (
+        strlen($contraseña) < 8 ||
+        !preg_match('/[A-Z]/', $contraseña) ||
+        !preg_match('/[a-z]/', $contraseña) ||
+        !preg_match('/\d/', $contraseña) ||
+        !preg_match('/[^A-Za-z0-9]/', $contraseña)
+    ) {
+        echo "<script>alert('La contraseña no cumple con los requisitos de seguridad.'); window.history.back();</script>";
+        exit;
+    }
+
+    $contraseña_hashed = password_hash($contraseña, PASSWORD_DEFAULT);
+    $foto_perfil = 'images/usuario.png';
 
     if (isset($_FILES['foto_perfil']) && $_FILES['foto_perfil']['error'] === 0) {
         $dir_subida = 'images/perfiles/';
@@ -21,14 +40,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     $conexion = conectarDB();
-    $stmt = $conexion->prepare("INSERT INTO usuarios (nombre_usuario, correo, contraseña, foto_perfil) VALUES (?, ?, ?, ?)");
-    $stmt->bind_param("ssss", $nombre_usuario, $correo, $contraseña, $foto_perfil);
+    $stmt = $conexion->prepare("INSERT INTO usuarios (nombre_usuario, correo, contraseña, foto_perfil, rol) VALUES (?, ?, ?, ?, 'usuario')");
+    $stmt->bind_param("ssss", $nombre_usuario, $correo, $contraseña_hashed, $foto_perfil);
 
     if ($stmt->execute()) {
-        $_SESSION['usuario_id'] = $stmt->insert_id;
+        $usuario_id = $stmt->insert_id;
+
+        $_SESSION['usuario_id'] = $usuario_id;
         $_SESSION['nombre_usuario'] = $nombre_usuario;
         $_SESSION['foto_perfil'] = $foto_perfil;
+        $_SESSION['rol'] = "usuario";
+
+        $user_data = [
+            'id' => $usuario_id,
+            'name' => $nombre_usuario,
+            'photo' => $foto_perfil,
+            'rol' => 'usuario'
+        ];
+
+        // Cookie por 30 días
+        setcookie("user_data", json_encode($user_data), time() + (86400 * 30), "/");
+
+        // Para localStorage vía index.php
+        $_SESSION['local_user'] = $user_data;
+
         header("Location: index.php");
+        exit;
     } else {
         echo "Error al registrar: " . $stmt->error;
     }

@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("btn-ajustes")?.addEventListener("click", () => window.location.href = "ajustes.html");
       document.getElementById("btn-logout")?.addEventListener("click", () => {
         localStorage.removeItem("user");
-        window.location.href = "index.php";
+        window.location.href = "logout.php";
       });
       document.getElementById("btn-login")?.addEventListener("click", () => window.location.href = "login.php");
     }, 0);
@@ -88,4 +88,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Asigna toggleMenu globalmente (lo usas en el HTML)
   window.toggleMenu = toggleMenu;
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  if (!localStorage.getItem("cookies_accepted")) {
+    document.getElementById("cookie-banner").style.display = "block";
+  }
+
+  document.getElementById("accept-cookies")?.addEventListener("click", () => {
+    localStorage.setItem("cookies_accepted", "true");
+    document.getElementById("cookie-banner").style.display = "none";
+  });
 });

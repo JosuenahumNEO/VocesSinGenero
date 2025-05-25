@@ -2,6 +2,11 @@
 require_once 'conexion.php';
 session_start();
 
+if (!isset($_SESSION['usuario_id'])) {
+    header("Location: login.php");
+    exit;
+}
+
 $conn = conectarDB();
 $query = "SELECT p.id, p.titulo, p.contenido, p.portada, p.fecha, p.etiquetas, u.nombre_usuario 
           FROM posts p 
@@ -46,7 +51,7 @@ if (!$resultado) {
 				<ul>
 					<li><a href="index.php">Inicio</a></li>
 					<li><a href="nosotros.html">Acerca</a></li>
-					<li><a href="http://localhost:3000/opiniones.php">Opiniones</a></li>
+					<li><a href="http://localhost/VocesSinGnero/opiniones_panel.php">Opiniones</a></li>
 					<li><a href="post.php">Artículos</a></li>
 				</ul>
 			</nav>
@@ -67,7 +72,7 @@ if (!$resultado) {
 				<ul>
 					<li><a href="index.php">Inicio</a></li>
 					<li><a href="nosotros.html">Acerca</a></li>
-					<li><a href="http://localhost:3000/opiniones.php">Opiniones</a></li>
+					<li><a href="http://localhost/VocesSinGnero/opiniones_panel.php">Opiniones</a></li>
 					<li><a href="post.php">Artículos</a></li>
 				</ul>
 			</div>

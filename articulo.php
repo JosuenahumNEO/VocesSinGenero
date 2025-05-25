@@ -80,7 +80,7 @@ $articuloRelacionado = $relacionado->fetch_assoc();
       <ul>
         <li><a href="index.php">Inicio</a></li>
         <li><a href="nosotros.html">Acerca</a></li>
-        <li><a href="http://localhost:3000/opiniones.php">Opiniones</a></li>
+        <li><a href="http://localhost/VocesSinGnero/opiniones_panel.php">Opiniones</a></li>
         <li><a href="post.php">Artículos</a></li>
       </ul>
     </nav>
@@ -98,7 +98,7 @@ $articuloRelacionado = $relacionado->fetch_assoc();
       <ul>
         <li><a href="index.php">Inicio</a></li>
         <li><a href="nosotros.html">Acerca</a></li>
-        <li><a href="http://localhost:3000/opiniones.php">Opiniones</a></li>
+        <li><a href="http://localhost/VocesSinGnero/opiniones_panel.php">Opiniones</a></li>
         <li><a href="post.php">Artículos</a></li>
       </ul>
     </div>
@@ -249,7 +249,12 @@ document.addEventListener("DOMContentLoaded", function () {
       xhr.open("POST", "procesar_comentario.php", true);
 
       xhr.onload = function () {
-        const user = JSON.parse(localStorage.getItem("user")) || {};
+        const user = JSON.parse(localStorage.getItem("user"));
+        if (!user || !user.id) {
+        alert("Debes iniciar sesión para comentar.");
+        return;
+        }
+
         const nuevoComentario = document.createElement("div");
         nuevoComentario.classList.add("comentario");
         nuevoComentario.innerHTML = `
@@ -291,6 +296,11 @@ textarea.addEventListener("input", () => {
 
 
 </body>
+<?php if (!isset($_SESSION['usuario_id'])): ?>
+  <script>
+    localStorage.removeItem("user");
+  </script>
+<?php endif; ?>
 </html>
 
 <?php
@@ -298,4 +308,3 @@ $relacionadoStmt->close();
 $stmt->close();
 $conn->close();
 ?>
-

@@ -13,7 +13,7 @@ $nuevo_correo = trim($_POST['nuevo_correo']);
 $nueva_contraseña = !empty($_POST['nueva_contraseña']) ? password_hash($_POST['nueva_contraseña'], PASSWORD_DEFAULT) : null;
 $nueva_foto = $_SESSION['foto_perfil'];
 
-// Guardar nueva imagen si se sube
+// Procesar nueva imagen si fue cargada
 if (isset($_FILES['nueva_foto']) && $_FILES['nueva_foto']['error'] === 0) {
     $dir = "images/perfiles/";
     if (!is_dir($dir)) mkdir($dir, 0755, true);
@@ -27,13 +27,33 @@ if (isset($_FILES['nueva_foto']) && $_FILES['nueva_foto']['error'] === 0) {
 
 $conn = conectarDB();
 
-if ($nueva_contraseña) {
-    $stmt = $conn->prepare("UPDATE usuarios SET nombre_usuario = ?, correo = ?, contraseña = ?, foto_perfil = ? WHERE id = ?");
-    $stmt->bind_param("ssssi", $nuevo_nombre, $nuevo_correo, $nueva_contraseña, $nueva_foto, $id);
-} else {
-    $stmt = $conn->prepare("UPDATE usuarios SET nombre_usuario = ?, correo = ?, foto_perfil = ? WHERE id = ?");
-    $stmt->bind_param("sssi", $nuevo_nombre, $nuevo_correo, $nueva_foto, $id);
+// Construir consulta dinámicamente
+$campos = ["nombre_usuario = ?"];
+$valores = [$nuevo_nombre];
+$tipos = "s";
+
+if (!empty($nuevo_correo)) {
+    $campos[] = "correo = ?";
+    $valores[] = $nuevo_correo;
+    $tipos .= "s";
 }
+if ($nueva_contraseña) {
+    $campos[] = "contraseña = ?";
+    $valores[] = $nueva_contraseña;
+    $tipos .= "s";
+}
+if ($nueva_foto) {
+    $campos[] = "foto_perfil = ?";
+    $valores[] = $nueva_foto;
+    $tipos .= "s";
+}
+
+$valores[] = $id;
+$tipos .= "i";
+
+$sql = "UPDATE usuarios SET " . implode(", ", $campos) . " WHERE id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param($tipos, ...$valores);
 
 if ($stmt->execute()) {
     $_SESSION['nombre_usuario'] = $nuevo_nombre;
@@ -53,4 +73,3 @@ if ($stmt->execute()) {
 
 $stmt->close();
 $conn->close();
-?>

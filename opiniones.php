@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (!isset($_SESSION['usuario_id'])) {
+    header("Location: login.php");
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -109,7 +117,7 @@
             <button type="submit">Enviar comentario</button>
         </form>
 
-        <button onclick="window.history.back()">Volver</button>
+        <a href="index.php"><button type="button">Volver al inicio</button></a>
     </div>
 </body>
 </html>

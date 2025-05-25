@@ -165,7 +165,7 @@ if (!isset($_SESSION['usuario_id']) && isset($_COOKIE['user_data'])) {
 				</div>
 
 				<div class="container-button">
-					<a href="nosotros.html" class="btn btn-primary">
+					<a href="nosotros.php" class="btn btn-primary">
 						Descubre más sobre nosotros <i class="fa-solid fa-arrow-right"></i>
 					</a>
 				</div>

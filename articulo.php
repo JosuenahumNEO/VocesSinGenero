@@ -165,11 +165,13 @@ $articuloRelacionado = $relacionado->fetch_assoc();
   <?php if (isset($_SESSION['usuario_id'])): ?>
     <form action="procesar_comentario.php" method="POST" class="form-comentario">
       <input type="hidden" name="post_id" value="<?= $id ?>">
-      <textarea class="form-control" name="contenido" required minlength="5" maxlength="500" placeholder="Escribe tu comentario aquí..."></textarea>
+      <textarea name="contenido" required minlength="2" maxlength="500" placeholder="Escribe tu comentario aquí..."></textarea>
       <button type="submit">Enviar Comentario</button>
     </form>
   <?php else: ?>
-    <p><a href="login.php">Inicia sesión</a> para comentar.</p>
+    <div class="login-btn-wrapper">
+      <a href="login.php" class="btn-login-required">Inicia sesión para comentar</a>
+    </div>
   <?php endif; ?>
 </section>
 
@@ -263,7 +265,7 @@ document.addEventListener("DOMContentLoaded", function () {
 <script>
 const textarea = document.querySelector("textarea[name='contenido']");
 textarea.addEventListener("input", () => {
-  if (textarea.value.length < 5) {
+  if (textarea.value.length < 2) {
     textarea.setCustomValidity("El comentario debe tener al menos 5 caracteres.");
   } else {
     textarea.setCustomValidity("");

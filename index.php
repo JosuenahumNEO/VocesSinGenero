@@ -3,6 +3,22 @@ session_start();
 require_once 'conexion.php';
 $conn = conectarDB();
 $resultado = $conn->query("SELECT id, titulo, portada FROM posts ORDER BY fecha DESC LIMIT 3");
+if (!isset($_SESSION['usuario_id']) && isset($_COOKIE['user_data'])) {
+    $user_data = json_decode($_COOKIE['user_data'], true);
+    if ($user_data && isset($user_data['id'])) {
+        $_SESSION['usuario_id'] = $user_data['id'];
+        $_SESSION['nombre_usuario'] = $user_data['name'];
+        $_SESSION['foto_perfil'] = $user_data['photo'];
+        $_SESSION['rol'] = $user_data['rol'];
+
+        // También actualizar localStorage en el navegador
+        $_SESSION['local_user'] = [
+            'name' => $user_data['name'],
+            'photo' => $user_data['photo'],
+            'rol' => $user_data['rol']
+        ];
+    }
+}
 ?>
 
 
@@ -32,10 +48,12 @@ $resultado = $conn->query("SELECT id, titulo, portada FROM posts ORDER BY fecha 
 
 <?php if (isset($_SESSION['local_user'])): ?>
 <script>
-  localStorage.setItem('user', JSON.stringify(<?= json_encode($_SESSION['local_user']) ?>));
+  const user = <?= json_encode($_SESSION['local_user']) ?>;
+  localStorage.setItem('user', JSON.stringify(user));
 </script>
 <?php unset($_SESSION['local_user']); ?>
 <?php endif; ?>
+
 
 
 
@@ -50,7 +68,7 @@ $resultado = $conn->query("SELECT id, titulo, portada FROM posts ORDER BY fecha 
 				<ul>
 					<li><a href="index.php">Inicio</a></li>
 					<li><a href="nosotros.html">Acerca</a></li>
-					<li><a href="http://localhost:3000/opiniones.php">Opiniones</a></li>
+					<li><a href="http://localhost/VocesSinGnero/opiniones_panel.php">Opiniones</a></li>
 					<li><a href="post.php">Artículos</a></li>
 				</ul>
 			</nav>
@@ -71,7 +89,7 @@ $resultado = $conn->query("SELECT id, titulo, portada FROM posts ORDER BY fecha 
 				<ul>
 					<li><a href="index.php">Inicio</a></li>
 					<li><a href="nosotros.html">Acerca</a></li>
-					<li><a href="http://localhost:3000/opiniones.php">Opiniones</a></li>
+					<li><a href="http://localhost/VocesSinGnero/opiniones_panel.php">Opiniones</a></li>
 					<li><a href="post.php">Artículos</a></li>
 				</ul>
 			</div>
@@ -264,6 +282,14 @@ $resultado = $conn->query("SELECT id, titulo, portada FROM posts ORDER BY fecha 
 			</div>
 		</div>
 	</footer>
+
+	<div id="cookie-banner" style="display: none; position: fixed; bottom: 20px; left: 20px; right: 20px; background: #333; color: #fff; padding: 15px 20px; border-radius: 8px; z-index: 1000; box-shadow: 0 0 10px rgba(0,0,0,0.4);">
+  <p style="margin: 0; font-size: 14px;">
+    Este sitio utiliza cookies para mejorar tu experiencia. Al continuar navegando, aceptas su uso.
+    <button id="accept-cookies" style="margin-left: 15px; background: #19bc70; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">Aceptar</button>
+  </p>
+</div>
+
 
 <!-- SCRIPTS -->
 <script src="js/partials.js" defer></script>

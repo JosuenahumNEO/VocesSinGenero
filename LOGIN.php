@@ -19,6 +19,11 @@ unset($_SESSION['error'], $_SESSION['correo_guardado'], $_SESSION['login_intenta
     <div class="container">
         <div class="form-box login">
           <form action="procesar_login.php" method="POST">
+            <?php if (isset($_SESSION['error'])): ?>
+            <p style="color: red;"><?= $_SESSION['error'] ?></p>
+            <?php unset($_SESSION['error']); ?>
+            <?php endif; ?>
+
                 <h1>Login</h1>
                 <div class="input-box">
                     <input type="email" name="correo" placeholder="Correo" required>
@@ -28,7 +33,6 @@ unset($_SESSION['error'], $_SESSION['correo_guardado'], $_SESSION['login_intenta
                   <input type="password" id="loginPassword" name="contraseña" placeholder="Contraseña" required>
                   <i class="fa-solid fa-eye" id="toggleLoginPassword" onclick="togglePasswordVisibility('loginPassword', 'toggleLoginPassword')"></i>
                 </div>
-
 
                 <div class="forgot-link">
                     <a href="#">Olvidaste tu contraseña?</a>
@@ -47,10 +51,10 @@ unset($_SESSION['error'], $_SESSION['correo_guardado'], $_SESSION['login_intenta
             <form action="registro.php" method="POST" enctype="multipart/form-data">
                 <h1>Registrate</h1>
                 <div class="input-box1">
-                  <label for="foto_perfil" style="display: block; text-align: left; font-weight: 500;">Foto de perfil</label>
+                  <label for="foto_perfil" style="display: block; text-align: left; font-weight: 500;"></label>
                   <input type="file" name="foto_perfil" id="foto_perfil" accept="image/*" required>
+                  <i class="fa-solid fa-camera"></i>
                 </div>
-
                 <div class="input-box1">
                     <input type="text" name="nombre_usuario" placeholder="Usuario" required>
                     <i class="fa-solid fa-user"></i>
@@ -59,20 +63,22 @@ unset($_SESSION['error'], $_SESSION['correo_guardado'], $_SESSION['login_intenta
                     <input type="email" name="correo" placeholder="Correo" required>
                     <i class="fa-solid fa-envelope"></i>
                 </div>
-                <div class="input-box">
-                  <input type="password" id="loginPassword" name="contraseña" placeholder="Contraseña" required>
-                  <i class="fa-solid fa-eye" id="toggleLoginPassword" onclick="togglePasswordVisibility('loginPassword', 'toggleLoginPassword')"></i>
+                <!-- Contraseña -->
+                <div class="input-box1 contraseña-box">
+                  <input type="password" id="registroPassword" name="contraseña" placeholder="Contraseña" required>
+                  <i class="fa-solid fa-eye" id="toggleRegistroPassword" onclick="togglePasswordVisibility('registroPassword', 'toggleRegistroPassword')"></i>
+                </div>
+
+                <div class="input-box1 contraseña-box">
+                  <input type="password" id="confirmarPassword" name="confirmar_contraseña" placeholder="Confirmar contraseña" required>
+                  <i class="fa-solid fa-eye" id="toggleConfirmarPassword" onclick="togglePasswordVisibility('confirmarPassword', 'toggleConfirmarPassword')"></i>
                 </div>
 
 
-                <div class="input-box">
-                  <input type="password" id="loginPassword" name="contraseña" placeholder="Contraseña" required>
-                  <i class="fa-solid fa-eye" id="toggleLoginPassword" onclick="togglePasswordVisibility('loginPassword', 'toggleLoginPassword')"></i>
-                </div>
+                <!-- Mensaje si no coinciden -->
+                <small id="passwordMismatch" style="color: red; display: none;">Las contraseñas no coinciden.</small>
 
 
-
-                <!--<button type="submit" class="btn">Register</button>-->
                         
                         <ul id="password-rules" style="list-style: none; padding-left: 0;">
                             <li id="rule-length" class="invalid">✔ Mínimo de 8 caracteres</li>
@@ -83,11 +89,6 @@ unset($_SESSION['error'], $_SESSION['correo_guardado'], $_SESSION['login_intenta
                 <p class="terminos_condiciones">Al crear cuenta aceptas nuestros <a href="terminos_condiciones.html">Términos y condiciones</a></p>
 
                 <button type="submit" class="btn">Registrate</button>
-                <!--<div class="social-icons">
-                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#"><i class="fa-solid fa-x"></i></a>
-                </div>-->
             </form>
         </div>
 

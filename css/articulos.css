@@ -52,7 +52,7 @@
 /* =========================== */
 
 .container-content {
-	max-width: 1200px;
+	max-width: 1500px;
 	width: 100%;
 	margin: auto;
 	display: flex;
@@ -115,6 +115,25 @@ article img {
 	width: 100%;
 	margin-top: 20px;
 	border-radius: 8px;
+}
+
+/* Imágenes dentro del contenido del artículo */
+article img {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 20px 0;
+  border-radius: 8px;
+}
+
+article img,
+article figure,
+article figure img {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* Botones */
@@ -338,7 +357,7 @@ article img {
 
 @media screen and (max-width: 1220px) {
 	.container-content {
-		max-width: 1000px;
+		max-width: 1300px;
 		padding: 0 20px;
 	}
 }
@@ -369,15 +388,14 @@ article img {
 }
 
 @media screen and (max-width: 768px) {
-	.container-cover-info h1 {
-		font-size: 26px;
-	}
 
-	.container-cover-info p {
-		font-size: 16px;
-	}
-
-	article h1 {
-		font-size: 28px;
-	}
+  .article-container-cover h1,
+  .container-cover-info h1,
+  article h1 {
+    font-size: 24px !important;
+    line-height: 1.2;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
 }

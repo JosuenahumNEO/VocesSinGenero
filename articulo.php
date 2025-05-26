@@ -112,11 +112,13 @@ $articuloRelacionado = $relacionado->fetch_assoc();
         <h2>Trivia del artículo</h2>
           <?php if ($triviaData && $triviaData[0]['portada']): ?>
             <img src="<?= htmlspecialchars($triviaData[0]['portada']) ?>" alt="Trivia portada" style="width: 100%; border-radius: 8px;" />
-          <?php endif; ?>
-          
+
           <div class="container-button" style="margin-top: 10px;">
             <a href="jugar_trivia.php?post_id=<?= $id ?>" class="btn btn-primary">Jugar</a>
           </div>
+          <?php else: ?>
+                <p>No hay trivias que mostrar.</p>
+            <?php endif; ?>
         </aside>
 
 

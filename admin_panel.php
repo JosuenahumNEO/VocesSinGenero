@@ -33,11 +33,24 @@ $result = $conn->query("SELECT id, titulo, fecha FROM posts ORDER BY fecha DESC"
 
 <main class="admin-panel">
   <div class="admin-container">
+    
+    <?php if (!empty($_SESSION['mensaje'])): ?>
+  <div class="alert success">
+    <?= $_SESSION['mensaje'] ?>
+    <?php unset($_SESSION['mensaje']); ?>
+  </div>
+<?php endif; ?>
+
     <h1>Panel de Administración</h1>
 
     <div class="admin-section">
       <h2>Crear nueva publicación</h2>
       <a href="crear_post.php" class="btn btn-primary">Ir a crear publicación</a>
+    </div>
+
+    <div class="admin-section">
+      <h2>Crear nueva trivia</h2>
+      <a href="agregar_trivia.php" class="btn btn-primary">Ir a crear trivia</a>
     </div>
 
     <div class="admin-section">
@@ -64,6 +77,47 @@ $result = $conn->query("SELECT id, titulo, fecha FROM posts ORDER BY fecha DESC"
           <?php endwhile; ?>
         </tbody>
       </table>
+
+      <h2 style="margin-top: 3rem;">Gestionar trivias</h2>
+
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Portada</th>
+            <th>Pregunta</th>
+            <th>Artículo</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php
+          $trivias = $conn->query("
+            SELECT t.id, t.pregunta, t.portada, p.titulo 
+            FROM trivias t
+            JOIN posts p ON t.post_id = p.id
+            ORDER BY t.id DESC
+          ");
+          while ($t = $trivias->fetch_assoc()):
+          ?>
+          <tr>
+            <td>
+              <?php if ($t['portada']): ?>
+                <img src="<?= htmlspecialchars($t['portada']) ?>" alt="Portada" width="80" height="50" style="object-fit: cover;">
+              <?php else: ?>
+                <em>Sin imagen</em>
+              <?php endif; ?>
+            </td>
+            <td><?= htmlspecialchars($t['pregunta']) ?></td>
+            <td><?= htmlspecialchars($t['titulo']) ?></td>
+            <td>
+              <a href="editar_trivia.php?id=<?= $t['id'] ?>" class="btn btn-edit">Editar</a>
+              <a href="eliminar_trivia.php?id=<?= $t['id'] ?>" class="btn btn-delete" onclick="return confirm('¿Estás seguro?')">Eliminar</a>
+            </td>
+          </tr>
+          <?php endwhile; ?>
+        </tbody>
+      </table>
+
     </div>
   </div>
 </main>

@@ -22,6 +22,17 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  window.addEventListener('resize', function () {
+  const menu = document.querySelector('.menu-responsive');
+  const toggle = document.querySelector('.btn-toggle');
+
+  if (window.innerWidth > 992) {
+    menu.classList.remove('show');
+    document.querySelector('.fa-bars')?.classList.add('active');
+    document.querySelector('.fa-xmark')?.classList.remove('active');
+  }
+});
+
   // DATOS DE USUARIO Y MENÚ
   const user = JSON.parse(localStorage.getItem("user"));
 

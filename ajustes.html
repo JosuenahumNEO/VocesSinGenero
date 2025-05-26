@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ajustes de perfil</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+ 
+ <style>
+
+    body {
+      color: black;
+    }
+    .profile-pic {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+    .form-section {
+      max-width: 600px;
+      margin: auto;
+      padding: 2rem;
+    }
+    .input-group-text {
+      background: white;
+      cursor: pointer;
+    }
+    .password-check {
+      font-size: 0.9rem;
+      color: #888;
+    }
+    .password-check span.valid {
+      color: green;
+    }
+    .password-check span.invalid {
+      color: red;
+    }
+    .container{
+      background-color: black;
+    }
+  
+     body {
+      background-color:#0e110d;
+    }
+    .form-container {
+      max-width: 600px;
+      margin: 4rem auto;
+      padding: 2.5rem;
+      background-color:#ffffff1a;
+   
+      border-radius: 10px;
+      box-shadow: 0 4px 16px  #0e110d;
+    }
+    .form-label small {
+      font-weight: normal;
+    }
+
+  </style>
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/header.css" />
+  <link rel="stylesheet" href="css/articulos.css"/>
+  <link rel="stylesheet" href="css/home.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body class="container">
+  <div class="form-container">
+    <h2 class="text-center mb-4">Ajustes de usuario</h2>
+    <form action="ajustes.php" method="POST" enctype="multipart/form-data">
+      <div class="text-center mb-4">
+        <img src="images/usuario.png" id="preview" class="profile-pic" alt="Foto de perfil" />
+        <div class="mt-2">
+          <input type="file" name="nueva_foto" accept="image/*" onchange="previewImage(this)" />
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Nuevo nombre de usuario</label>
+        <input type="text" name="nuevo_nombre" class="form-control" required />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Nuevo correo electrónico <small class="text-muted">(opcional)</small></label>
+        <input type="email" name="nuevo_correo" class="form-control" />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Nueva contraseña <small class="text-muted">(opcional)</small></label>
+        <div class="input-group">
+          <input type="password" name="nueva_contraseña" id="nueva_contraseña" class="form-control" />
+          <span class="input-group-text" onclick="togglePassword()">
+            <i id="eyeIcon" class="fa-solid fa-eye-slash"></i>
+          </span>
+        </div>
+        <div class="password-check mt-2" id="passwordCheck">
+          <span id="length" class="invalid">• Mínimo 8 caracteres</span><br>
+          <span id="uppercase" class="invalid">• Una letra mayúscula</span><br>
+          <span id="number" class="invalid">• Un número</span><br>
+          <span id="special" class="invalid">• Un carácter especial</span>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100">Guardar cambios</button>
+    </form>
+  </div>
+
+  <script>
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (user && user.name && user.photo) {
+      document.querySelector("input[name='nuevo_nombre']").value = user.name;
+      document.getElementById("preview").src = user.photo;
+    }
+
+    function previewImage(input) {
+      const file = input.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          document.getElementById("preview").src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+
+    function togglePassword() {
+      const input = document.getElementById('nueva_contraseña');
+      const icon = document.getElementById('eyeIcon');
+      if (input.type === 'password') {
+        input.type = 'text';
+        icon.classList.remove('fa-eye-slash');
+        icon.classList.add('fa-eye');
+      } else {
+        input.type = 'password';
+        icon.classList.remove('fa-eye');
+        icon.classList.add('fa-eye-slash');
+      }
+    }
+
+    document.getElementById('nueva_contraseña').addEventListener('input', function () {
+      const val = this.value;
+      document.getElementById('length').className = val.length >= 8 ? 'valid' : 'invalid';
+      document.getElementById('uppercase').className = /[A-Z]/.test(val) ? 'valid' : 'invalid';
+      document.getElementById('number').className = /\d/.test(val) ? 'valid' : 'invalid';
+      document.getElementById('special').className = /[!@#$%^&*(),.?":{}|<>]/.test(val) ? 'valid' : 'invalid';
+    });
+  </script>
+</body>
+</html>

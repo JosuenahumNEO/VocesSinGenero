@@ -65,18 +65,6 @@ if (!isset($_SESSION['usuario_id']) || $_SESSION['rol'] !== 'admin') {
         <input type="file" class="form-control" name="imagen_general" accept="image/*"  />
       </div>
 
-      <!-- Imagen del aside -->
-      <div class="mb-3">
-        <label for="imagen_aside" class="form-label">Imagen para la sección de aside o info adicional</label>
-        <input type="file" class="form-control" name="imagen_aside" accept="image/*"  />
-      </div>
-
-      <!-- Descripción del aside -->
-      <div class="mb-3">
-        <label for="descripcion_aside" class="form-label">Texto para la sección de aside o info adicional</label>
-        <textarea class="form-control" name="descripcion_aside" rows="2" ></textarea>
-      </div>
-
       <!-- Etiquetas -->
       <div class="mb-3">
         <label for="etiquetas" class="form-label">Etiquetas <small>(separadas por comas)</small></label>

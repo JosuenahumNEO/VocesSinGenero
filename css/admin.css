@@ -94,3 +94,23 @@
     background-color: #ddd !important;
     
   }
+
+  /* Haz que las tablas se puedan deslizar en pantallas pequeñas */
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+/* Envolver la tabla para que no se rompa el diseño */
+.admin-section {
+  overflow-x: auto;
+}
+
+/* Opcional: Estilos para celdas y filas */
+.admin-table th,
+.admin-table td {
+  padding: 8px 12px;
+  text-align: left;
+  white-space: nowrap; /* Evita que se rompa el texto */
+}

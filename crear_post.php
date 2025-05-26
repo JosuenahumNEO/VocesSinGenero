@@ -6,9 +6,6 @@ if (!isset($_SESSION['usuario_id']) || $_SESSION['rol'] !== 'admin') {
   echo "<script>alert('Acceso denegado. Solo para administradores'); window.location.href='index.php';</script>";
   exit;
 }
-
-
-
 ?>
 
 <!DOCTYPE html>

@@ -29,14 +29,21 @@ if ($datos) {
     @unlink($datos['imagen_aside']);
 }
 
+// Eliminar comentarios asociados al post
+$stmt = $conn->prepare("DELETE FROM comentarios WHERE post_id = ?");
+$stmt->bind_param("i", $id);
+$stmt->execute();
+$stmt->close();
+
 // Eliminar el post
 $stmt = $conn->prepare("DELETE FROM posts WHERE id = ?");
 $stmt->bind_param("i", $id);
 if ($stmt->execute()) {
     echo "<script>alert('Artículo eliminado exitosamente.'); window.location.href='admin_panel.php';</script>";
 } else {
-    echo "<script>alert('Error al eliminar el artículo.'); window.location.href='admin_panel.php';</script>";
+    echo "Error al eliminar el post: " . $stmt->error;  // <-- Agrega esto para ver el error
 }
+
 
 $stmt->close();
 $conn->close();

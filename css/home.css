@@ -1774,6 +1774,7 @@ input[type="radio"]{
 	.member img {
 		width: 120px; /* Imagen más grande */
 		height: 120px;
+	    border-radius: 100px; /* Imagen circular */
 	}
 	
 	.member h3 {

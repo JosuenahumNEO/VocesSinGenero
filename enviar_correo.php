@@ -1,4 +1,9 @@
 <?php
+require_once __DIR__ . '/vendor/autoload.php';
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 require 'PHPMailer/src/Exception.php';
@@ -28,8 +33,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['correo'])) {
             $mail->isSMTP();
             $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
-            $mail->Username = 'vocessingenero@gmail.com';
-            $mail->Password = 'dyec catv xujd rlfg'; // tu contraseña de aplicación
+            $mail->Username = $_ENV['MAIL_USERNAME'];
+            $mail->Password = $_ENV['MAIL_PASSWORD'];
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port = 587;
 
@@ -38,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['correo'])) {
             $mail->isHTML(true);
             $mail->Subject = 'Recupera tu contraseña';
             $mail->Body = "Haz clic en el siguiente enlace para cambiar tu contraseña:<br><br>
-                <a href='http://localhost/VocesSinGenero-main/nueva_contraseña.php?token=$token'>Recuperar contraseña</a>";
+                <a href='http://localhost/VocesSinGnero/nueva_contraseña.php?token=$token'>Recuperar contraseña</a>";
 
             $mail->send();
             echo "✅ Revisa tu correo para continuar.";

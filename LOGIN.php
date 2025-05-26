@@ -35,7 +35,7 @@ unset($_SESSION['error'], $_SESSION['correo_guardado'], $_SESSION['login_intenta
                 </div>
 
                 <div class="forgot-link">
-                    <a href="#">Olvidaste tu contraseña?</a>
+                    <a href="recuperar_contraseña.php">Olvidaste tu contraseña?</a>
                 </div>
                 <button type="submit" class="btn">Login</button>
                 <p>Siguenos en nuestras redes sociales</p>

@@ -110,24 +110,15 @@ $articuloRelacionado = $relacionado->fetch_assoc();
 
         <aside>
         <h2>Trivia del artículo</h2>
-        <?php if ($triviaData): ?>
-            <form id="form-trivia">
-            <?php foreach ($triviaData as $index => $pregunta): ?>
-                <p><strong><?= $index + 1 ?>. <?= htmlspecialchars($pregunta['pregunta']) ?></strong></p>
-                <div>
-                <label><input type="radio" name="pregunta_<?= $pregunta['id'] ?>" value="A"> <?= $pregunta['opcion_a'] ?></label><br>
-                <label><input type="radio" name="pregunta_<?= $pregunta['id'] ?>" value="B"> <?= $pregunta['opcion_b'] ?></label><br>
-                <label><input type="radio" name="pregunta_<?= $pregunta['id'] ?>" value="C"> <?= $pregunta['opcion_c'] ?></label><br>
-                <label><input type="radio" name="pregunta_<?= $pregunta['id'] ?>" value="D"> <?= $pregunta['opcion_d'] ?></label>
-                </div>
-                <hr>
-            <?php endforeach; ?>
-            <button type="submit" class="btn btn-primary">Enviar respuestas</button>
-            </form>
-        <?php else: ?>
-            <p>No hay trivia disponible para este artículo aún.</p>
-        <?php endif; ?>
+          <?php if ($triviaData && $triviaData[0]['portada']): ?>
+            <img src="<?= htmlspecialchars($triviaData[0]['portada']) ?>" alt="Trivia portada" style="width: 100%; border-radius: 8px;" />
+          <?php endif; ?>
+          
+          <div class="container-button" style="margin-top: 10px;">
+            <a href="jugar_trivia.php?post_id=<?= $id ?>" class="btn btn-primary">Jugar</a>
+          </div>
         </aside>
+
 
     </div>
   </div>
@@ -272,6 +263,49 @@ textarea.addEventListener("input", () => {
   }
 });
 </script>
+<script>
+document.getElementById("form-trivia").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const form = e.target;
+  const formData = new FormData(form);
+
+  fetch("evaluar_trivia.php", {
+    method: "POST",
+    body: formData
+  })
+  .then(res => res.json())
+  .then(data => {
+    const resultadoDiv = document.getElementById("resultado-trivia");
+    resultadoDiv.innerHTML = "";
+
+    if (data.success) {
+      let correctas = 0;
+      const total = Object.keys(data.resultado).length;
+
+      for (const id in data.resultado) {
+        const item = data.resultado[id];
+        const p = document.createElement("p");
+        p.innerHTML = `Pregunta ${id}: ${item.es_correcta ? '✅ Correcto' : `❌ Incorrecto (Correcta: ${item.correcta})`}`;
+        p.style.color = item.es_correcta ? "lightgreen" : "tomato";
+        resultadoDiv.appendChild(p);
+        if (item.es_correcta) correctas++;
+      }
+
+      const resumen = document.createElement("p");
+      resumen.innerHTML = `<strong>Puntaje final: ${correctas}/${total}</strong>`;
+      resumen.style.marginTop = "1rem";
+      resultadoDiv.appendChild(resumen);
+    } else {
+      resultadoDiv.innerHTML = "Ocurrió un error al evaluar.";
+    }
+  })
+  .catch(err => {
+    alert("Error al conectar con el servidor.");
+  });
+});
+</script>
+
 
 
 </body>
